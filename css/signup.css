@@ -1,0 +1,125 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(246,243,228,1) 38%, rgba(246,240,217,1) 100%);
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+body, section, .container, .reg-ico>div
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+section
+{
+    margin: auto;
+}
+
+.try
+{
+    position: relative;
+}
+
+.color-div
+{
+    width: 550px;
+    height: 800px;
+    background-color: rgba(226, 186, 7, 0.65);
+    position: absolute;
+    left: -25px;
+    top: -25px;
+}
+
+#large-image
+{
+    width: 500px;
+}
+
+.container
+{
+    width: 500px;
+    height: 700px;
+    margin-left: 200px;
+    flex-direction: column;
+}
+
+#reg
+{
+    font-size: 30px;   
+}
+
+input
+{
+    border: none;
+    padding: 0 10px 0 10px;
+    margin-top: 30px;
+}
+
+.register
+{
+    border-bottom: 1px solid gray;
+    background-color: transparent;
+}
+
+.input-line
+{
+    width: 300px;
+    height: 40px;
+}
+
+input[type="checkbox"]
+{
+    background-color: #E2BA07;
+}
+
+input[type="submit"]
+{
+    width: 320px;
+    background-color: #E2BA07;
+    border-radius: 28px;
+}
+
+.new-acc
+{
+    margin-top: 10px;
+    font-size: 12px;
+    display: flex;
+}
+
+.new-acc>a
+{
+    color: #E2BA07;
+}
+
+.reg-ico
+{
+    display: flex;
+    gap: 35px;
+}
+
+.reg-ico>div
+{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.reg-ico a
+{
+    height: 30px;
+}
+
+.reg-ico img
+{
+    width: 30px;
+}
