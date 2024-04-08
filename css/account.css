@@ -1,0 +1,160 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden; 
+}
+
+.about
+{
+    text-align: center;
+}
+
+header {
+    background: #F6F3E4;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0 30px 70px;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1000;
+    top: 0;
+}
+
+header > ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+    list-style-type: none;
+}
+
+.logo img{
+    position: absolute;
+    max-width: 10px;
+    max-height: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+#sign-in {
+    margin-right: 20px;
+    width: 110px;
+    height: 35px;
+    border-radius: 20px;
+    border: none;
+    background-color: #E2BA07;
+}
+
+section
+{
+    margin-top: 50px;
+    height: 1000px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container-1
+{
+    width: 60%;
+    margin: 100px 0 100px 50px;
+}
+
+.element
+{
+    background-color: #F6F3E4;;
+}
+
+.element img
+{
+    width: 300px;
+    margin: 20px 0 20px 20px;
+    border-radius: 15px;
+}
+h3
+{
+    padding: 10px 0 10px 10px;
+}
+.model
+{
+    display: flex;
+}
+
+.info-model
+{
+    margin: 20px 0 20px 40px;
+    width: 500px;
+}
+
+.info-model>button
+{
+    width: 100px;
+    height: 40px;
+    background-color: #E2BA07;
+    border: none;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.container-2
+{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -150px;
+}
+
+.account-image
+{
+    width: 300px;
+    border-radius: 20px;
+}
+
+.container-3
+{
+    margin: 5px 100px 0 100px;
+    width: 180px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.ico
+{
+    width: 18px;
+    height: 18px;
+}
+
+footer
+{
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100px;
+    background-color: #F6F3E4;
+}
+
+footer>p
+{
+    display: inline;
+}
+
+@media only screen and (max-width: 850px)
+{
+
+}

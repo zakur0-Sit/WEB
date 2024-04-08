@@ -9,14 +9,36 @@ body
     background: rgb(255,255,255);
     background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(246,243,228,1) 38%, rgba(246,240,217,1) 100%);
     height: 100vh;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
 }
 
-body, section, .container, .reg-ico>div
+section, .container, .reg-ico>div
 {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+header
+{
+    height: 50px;
+    display: flex;
+}
+
+.logo>img
+{
+    transform: scaleY(-1) rotate(-90deg);
+    width: 80px;
+}
+header>#back
+{
+    font-size: 28px;
+    transform: rotate(-60deg);
+    margin: 20px 0 0 -20px;
+    text-decoration: none;
+    color: #000;
 }
 
 section
@@ -122,4 +144,63 @@ input[type="submit"]
 .reg-ico img
 {
     width: 30px;
+}
+
+@media only screen and (max-width: 1300px)
+{
+    .color-div
+    {
+        width: 350px;
+        height: 500px;
+        background-color: rgba(226, 186, 7, 0.65);
+        position: absolute;
+        left: -25px;
+        top: -25px;
+    }
+
+    #large-image
+    {
+        width: 300px;
+    }
+
+    .container
+    {
+        margin-left: 80px;
+        width: 300px;
+    }
+}
+
+@media only screen and (max-width: 850px)
+{
+    .color-div
+    {
+        display: none;
+    }
+
+    #large-image
+    {
+        display: none;
+    }
+
+    .container
+    {
+        margin: 0;
+    }
+}
+
+@media only screen and (max-height: 930px)
+{
+    .color-div
+    {
+        width: 350px;
+        height: 500px;
+        background-color: rgba(226, 186, 7, 0.65);
+        position: absolute;
+        left: -25px;
+        top: -25px;
+    }
+    #large-image
+    {
+        width: 300px;
+    }
 }
