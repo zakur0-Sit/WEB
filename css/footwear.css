@@ -40,7 +40,11 @@ header > ul
     display: flex;
     justify-content: space-between;
     align-items: center;
+<<<<<<< HEAD
     width: 35vw;
+=======
+    width: 500px;
+>>>>>>> 0824a22335ffd334ffde59b39c4aa2d537ffcda0
     list-style-type: none;
 }
 
