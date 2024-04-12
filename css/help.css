@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden; 
+    background: url('path_to_your_image.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+header {
+    background: rgba(246, 243, 228, 0.9); /* Adjust the background color and opacity as needed */
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0 10px 70px;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1000;
+    top: 0;
+}
+
+header>a>img {
+    width: 80px;
+}
+
+header > ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 35vw;
+    list-style-type: none;
+}
+
+.index {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+#sign-in {
+    margin-right: 20px;
+    width: 110px;
+    height: 35px;
+    border-radius: 20px;
+    border: none;
+    background-color: #E2BA07;
+}
+
+section{
+    padding: 100px 200px;
+}
+
+.home{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: #E2BA07;
+}
+
+.home:before{
+    z-index: 777;
+    content: '';
+    position: absolute;
+    background-color: rgba(226, 186, 7, 0.3);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+} 
+
+.home .content{
+    z-index: 888;
+    color: #fff;
+    width: 70%;
+    margin-top: 50px;  
+    display: none;
+}
+
+.home .content.active{
+  display: block;
+}
+
+.more-content {
+    display: none;
+}
+
+.read-more {
+    margin-top: 10px;
+    background-color: #E2BA07;
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 500;
+    border: none;
+    padding: 15px 35px;
+    cursor: pointer;
+}
+
+.read-more:hover{
+    margin-top: 10px;
+    background-color: #fff;
+    color: #E2BA07;
+    font-size: 1.2em;
+    font-weight: 500;
+    border: none;
+    padding: 15px 35px;
+    cursor: pointer;
+}
+
+.home .content h1{
+    font-size: 4em;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    line-height: 75px;
+    margin-bottom: 40px;
+}
+
+.home .content h1 span{
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.home .content p{
+   margin-bottom: 65px;
+}
+
+.home .content a{
+  background: #fff;
+  padding: 15px 35px;
+  color: #E2BA07;
+  font-size: 1.1em;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 2px;
+}
+
+.home .media-icons{
+    z-index: 888;
+    position: absolute;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.5 ease;
+}
+
+.home .media-icons a{
+   color: #fff;
+   font-size: 1.6em;
+}
+
+.home .media-icons a:not(:last-child){
+    margin-bottom: 20px;
+}
+
+.home .media-icons a:hover{
+    transform: scale(1.3);
+}
+
+.home video{
+    z-index: 000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slider-navigation{
+    z-index: 888;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    transform: translateY(80px);
+    margin-bottom: 12px;
+}
+
+.slider-navigation .nav-btn{
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+    transition: 0.3s ease;
+}
+
+.slider-navigation .nav-btn:not(:last-child){
+    margin-right: 15px;
+}
+
+.slider-navigation .nav-btn.active {
+    background: #E2BA07;
+    animation: wave 0.5s ease;
+    transform: scale(1.5);
+}
+
+.video-slide {
+    position: absolute;
+    width: 100%;
+    clip-path: circle(0% at 0 50%);
+}
+
+.video-slide.active {
+    clip-path: circle(150.0% at 0 50%);
+    transition: 1.5s ease;
+    transition-property: clip-path;
+}
+
+
+
+@keyframes wave {
+    0% { transform: scale(1.4); }
+    50% { transform: scale(1.8); }
+    100% { transform: scale(2); }
+}
+@media (max-width:1040px){
+    section{
+        padding: 100px 20 px;
+    }
+    .home .media-icons{
+        right: 15px;
+    }
+    /*
+    header.ul.li.a{
+       position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #E2BA07;
+    }
+    
+    Butoanele home, .. sa fie responsive
+    */ 
+}

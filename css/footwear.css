@@ -1,0 +1,168 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden; 
+}
+
+.about
+{
+    text-align: center;
+}
+
+header 
+{
+    background: #F6F3E4;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0 10px 70px;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1000;
+    top: 0;
+}
+
+header>a>img
+{
+    width: 80px;
+}
+
+header > ul 
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 35vw;
+    list-style-type: none;
+}
+
+a 
+{
+    text-decoration: none;
+    color: #000;
+}
+
+#sign-in 
+{
+    margin-right: 20px;
+    width: 110px;
+    height: 35px;
+    border-radius: 20px;
+    border: none;
+    background-color: #E2BA07;
+}
+
+section
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 150px 0 100px 0;
+    width: 100%;
+}
+
+.container-1
+{
+    width: 25%;
+    height: 400px;
+    background-color: rgba(246, 243, 228, 0.7);
+    text-align: center;
+    border-radius: 10px;
+}
+
+.container-2
+{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.element
+{
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rgba(246, 243, 228, 0.7);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.element>img
+{
+    width: 200px;
+    border-radius: 20px;
+    border: dotted 3px #E2BA07;
+    margin: 25px 0 25px 0;
+    
+}
+
+.info
+{
+    width: 70%;
+}
+
+.info-price
+{
+    font-weight: 600;
+}
+
+.info button
+{
+    width: 100px;
+    height: 40px;
+    background-color: #E2BA07;
+    border: none;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.like
+{
+    top: 10px;
+    float: right;
+    width: 30px;
+    position: relative;
+}
+
+.container-3
+{
+    margin: 5px 100px 0 100px;
+    width: 180px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.ico-container 
+{
+    margin: 5px 100px 10px 100px;
+}
+
+.ico 
+{
+    width: 30px;
+    margin: 0 20px 0 20px;
+}
+
+footer 
+{
+    display: flex;
+    width: 100%;
+    height: 200px;
+    background-color: #F6F3E4;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

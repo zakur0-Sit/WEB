@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log In</title>
+    <title>Sign-In</title>
     <link rel="stylesheet" href="css/signin.css">
 </head>
 <body>
+    <header>
+        <a href="index.html" class="logo"><img src="img/ico/arrow.png" alt="back"></a>
+        <a href="index.html" id="back" >Back</a>
+    </header>
     <section>
         <div class="try">
             <div class="color-div"></div>
-            <img src="img/sign-in-deco.jpg" alt="photo" id="large-image">
+            <img src="img/sign-in/sign-in-deco.jpg" alt="photo" id="large-image">
         </div>
         <div class="container">
             <p id="reg">Register</p>
@@ -19,7 +23,7 @@
                 <input class="input-line register" type="password"placeholder="Password"><br>
                 <input type="checkbox" name="check">
                 <label>Keep me logged</label><br>
-                <input class="input-line" type="submit" value="Sign In"><br>
+                <a href="account.html"><input class="input-line" type="submit" value="Sign In"></a><br>
             </forms>
             <br>
             <p>Or Sign In with</p>
