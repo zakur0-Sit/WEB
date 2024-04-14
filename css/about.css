@@ -2,6 +2,7 @@
 {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body
@@ -19,27 +20,44 @@ header {
     background: #F6F3E4;
     position: fixed;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0 10px 70px;
+    padding: 10px 20px;  
     width: 100%;
     box-sizing: border-box;
     z-index: 1000;
     top: 0;
 }
 
-header>a>img
-{
+.navbar a[href="index.html"] img {
     width: 80px;
+    margin-left: 2vw;
 }
 
-header > ul {
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 35vw;  
-    list-style-type: none;
+    width: 100%;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+}
+
+.nav-links li:hover a {
+    color: #E2BA07;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+
+.nav-links li {
+    margin: 0 15px;
 }
 
 a {
@@ -48,13 +66,70 @@ a {
 }
 
 #sign-in {
-    margin-right: 20px;
     width: 110px;
     height: 35px;
     border-radius: 20px;
     border: none;
     background-color: #E2BA07;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
 }
+
+#sign-in:hover{
+    color: #000;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.menu-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 40px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 850px) {
+    .navbar {
+        padding: 0;
+    }
+    .nav-links {
+        display: none;  
+        position: absolute;  
+        top: 100%; 
+        left: 0%;
+        width: 100%;
+        background: #E2BA07;
+        z-index: 1000;  
+        text-align: center;  
+        padding: 15px 0; 
+    }
+    .nav-links.open {
+        display: flex;  
+        flex-direction: column;  
+    }
+    .menu-btn {
+        display: block;
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 45px;
+        cursor: pointer;
+    }
+    .nav-links li {
+        margin: 15px 0;  
+    }
+}
+
+
+@media only screen and (min-width: 851px) {
+    .menu-btn {
+        display: none;  
+    }
+}
+
+
 
 section>p
 {
@@ -174,7 +249,7 @@ section>p
     margin: 5px 100px 0 100px;
     width: 180px;
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-theademplate-columns: repeat(2,1fr);
 }
 
 .ico-container 
@@ -197,4 +272,69 @@ footer
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+@media only screen and (max-width: 850px) {
+    /* Ajustați dimensiunile textului și imaginilor la dimensiunile dorite pentru ecrane mici */
+    .big-text {
+        font-size: 24px; /* Redu dimensiunea textului mare */
+        margin-bottom: 10px; /* Redu spațiul de dedesubt al textului mare */
+    }
+
+    .normal-text {
+        font-size: 18px; /* Redu dimensiunea textului normal */
+    }
+
+    .container-1, .container-2, .container-4, .container-5 {
+        padding: 0 30px; /* Redu padding-ul containerelor pentru a lăsa mai mult spațiu pe ecranele mici */
+    }
+    
+    .text-section{
+        height: 200px;
+    }
+
+    .nav-links li:hover a {
+        color: white;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    .container-1 > img {
+        height: auto; 
+        max-width: 40%;  
+        margin-left: 20px; 
+        margin-right: 20px;  
+    }
+    .container-1{
+        margin: 40px;
+    }
+    
+    #whatsetsusapart {
+        margin: 100px;
+    }
+
+    .container-2 > img {
+        height: auto; 
+        max-width: 50%;  
+        margin-left: 20px; 
+        margin-right: 20px;  
+    }
+
+    .container-3  img {
+        height: auto; 
+        max-height: 30%;  
+        margin-left: 20px; 
+        margin-right: 20px;  
+    }
+
+    .container-3 .container-4 .text .big-text{
+        margin: 50px;
+    }
+
+    .container-4  img {
+        height: auto; 
+        max-width: 90%;  
+        margin-left: 20px; 
+        margin-right: 20px;  
+    }
 }

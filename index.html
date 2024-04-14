@@ -7,16 +7,18 @@
 	<title>FoSA</title>
 </head>
 <body>
-    <header>
-        <a href="index.html"><img src="img/ico/smol-logo.png" alt="logo"></a>
-		 
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="footwear.html">Footwear</a></li>
-            <li><a href="about.html">About</a></li>
-			<li><a href="help.html">Help</a></li>    
-            <li><a href="signin.html"><button id="sign-in">Sign-in</button></a></li>
-        </ul>      
+	<header>
+        <nav class="navbar">
+            <a href="index.html"><img src="img/ico/smol-logo.png" alt="logo"></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="footwear.html">Footwear</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="help.html">Help</a></li>     
+                <li><a href="signin.html"><button id="sign-in">Sign-in</button></a></li>
+            </ul>  
+            <img src="./img/about/menu-btn.png" alt="menu-button-img" class="menu-btn">
+        </nav>    
     </header>
 
 	<div class="home">
@@ -26,7 +28,6 @@
 		</div>
 
 		<div class="words-about">
-			<!-- <img src="img/home/0.jpg" alt="image"> -->
 			<p class="words">Enter the world of smart footwear assistant with FoSA! Discover a new and exciting experience in finding the right shoes for every moment of your life. 
 				Every step you take with FoSA is a step towards
 				 your style and confidence!
@@ -77,6 +78,23 @@
         <p>Copyright &copy;2024; Designed by FoSA Team</p>
     </footer>
 	
-</body>
+	<script>
+        document.addEventListener('DOMContentLoaded', () => {
+       
+            const menuBtn = document.querySelector('.menu-btn');
+            const navLinks = document.querySelector('.nav-links');
 
+            menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 850) {
+                navLinks.classList.remove('open');
+            }
+            });
+        });
+    </script>
+
+</body>
 </html>

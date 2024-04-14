@@ -11,14 +11,17 @@
 
 <body>
     <header>
-        <a href="index.html"><img src="img/ico/smol-logo.png" alt="logo"></a>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="footwear.html">Footwear</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="help.html">Help</a></li>    
-            <li><a href="signin.html"><button id="sign-in">Sign-in</button></a></li>
-        </ul>      
+        <nav class="navbar">
+            <a href="index.html"><img src="img/ico/smol-logo.png" alt="logo"></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="footwear.html">Footwear</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="help.html">Help</a></li>     
+                <li><a href="signin.html"><button id="sign-in">Sign-in</button></a></li>
+            </ul>  
+            <img src="./img/about/menu-btn.png" alt="menu-button-img" class="menu-btn">
+        </nav>    
     </header>
 
     <section class="home">
@@ -132,6 +135,23 @@ const contents = document.querySelectorAll(".content");
         });
     });
 });
+
+        document.addEventListener('DOMContentLoaded', () => {
+       
+            const menuBtn = document.querySelector('.menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+
+            menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 850) {
+                navLinks.classList.remove('open');
+            }
+            });
+        });
+
 </script>
 
 

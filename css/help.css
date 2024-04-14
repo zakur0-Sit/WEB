@@ -12,34 +12,48 @@ body {
     background-size: cover;
 }
 
+
 header {
-    background: rgba(246, 243, 228, 0.9); /* Adjust the background color and opacity as needed */
+    background: #F6F3E4;
     position: fixed;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0 10px 70px;
+    padding: 10px 20px;  
     width: 100%;
     box-sizing: border-box;
     z-index: 1000;
     top: 0;
 }
 
-header>a>img {
+.navbar a[href="index.html"] img {
     width: 80px;
+    margin-left: 2vw;
 }
 
-header > ul {
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 35vw;
-    list-style-type: none;
+    width: 100%;
 }
 
-.index {
-    text-align: center;
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+}
+
+.nav-links li:hover a {
+    color: #E2BA07;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-links li {
+    margin: 0 15px;
 }
 
 a {
@@ -48,12 +62,67 @@ a {
 }
 
 #sign-in {
-    margin-right: 20px;
     width: 110px;
     height: 35px;
     border-radius: 20px;
     border: none;
     background-color: #E2BA07;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#sign-in:hover{
+    color: #000;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.menu-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 40px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 850px) {
+    .navbar {
+        padding: 0;
+    }
+    .nav-links {
+        display: none;  
+        position: absolute;  
+        top: 100%; 
+        left: 0%;
+        width: 100%;
+        background: #E2BA07;
+        z-index: 1000;  
+        text-align: center; 
+        padding: 15px 0; 
+    }
+    .nav-links.open {
+        display: flex;  
+        flex-direction: column;  
+    }
+    .menu-btn {
+        display: block;
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 45px;
+        cursor: pointer;
+    }
+    .nav-links li {
+        margin: 15px 0;  
+    }
+}
+
+
+@media only screen and (min-width: 851px) {
+    .menu-btn {
+        display: none;  
+    }
 }
 
 section{
@@ -226,26 +295,34 @@ section{
     50% { transform: scale(1.8); }
     100% { transform: scale(2); }
 }
+
 @media (max-width:1040px){
     section{
         padding: 100px 20 px;
     }
+
     .home .media-icons{
         right: 15px;
     }
-    /*
-    header.ul.li.a{
-       position: fixed;
-        width: 100%;
-        height: 100vh;
-        top: 0;
-        left: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: #E2BA07;
+
+    .nav-links li:hover a {
+        color: white;
+        font-weight: bold;
+        transition: color 0.3s ease;
     }
+
+    @media only screen and (max-width: 850px) {
+        .home {
+            padding: 20px; 
+            text-align: center;
+        }
     
-    Butoanele home, .. sa fie responsive
-    */ 
+        .content h1 {
+            font-size: 24px;
+        }
+    
+        .content p {
+            font-size: 16px;
+        }
+    }
 }

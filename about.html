@@ -9,14 +9,17 @@
 </head>
 <body>
     <header>
-        <a href="index.html"><img src="img/ico/smol-logo.png" alt="logo"></a>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="footwear.html">Footwear</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="help.html">Help</a></li>     
-            <li><a href="signin.html"><button id="sign-in">Sign-in</button></a></li>
-        </ul>      
+        <nav class="navbar">
+            <a href="index.html"><img src="img/ico/smol-logo.png" alt="logo"></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="footwear.html">Footwear</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="help.html">Help</a></li>     
+                <li><a href="signin.html"><button id="sign-in">Sign-in</button></a></li>
+            </ul>  
+            <img src="./img/about/menu-btn.png" alt="menu-button-img" class="menu-btn">
+        </nav>    
     </header>
     <div class="about">
         
@@ -34,7 +37,7 @@
                 <img src="img/about/1.png" alt="img">
             </div>
 
-            <p class="big-text">What sets us apart:</p>
+            <p id="whatsetsusapart" class="big-text">What sets us apart:</p>
 
             <div class="container-2 container">
                 <img src="img/about/2.png" alt="img">
@@ -74,5 +77,24 @@
 		<br>
         <p>Copyright &copy;2024; Designed by FoSA Team</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+       
+            const menuBtn = document.querySelector('.menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+
+            menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 850) {
+                navLinks.classList.remove('open');
+            }
+            });
+        });
+    </script>
+    
 </body>
 </html>
