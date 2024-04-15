@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>FoSA</title>
     <link rel="stylesheet" href="css/scholarly.min.css">
-    <script src="js/scholarly.min.js"></script>
+    
   </head>
   <body>
     <div role="contentinfo">
