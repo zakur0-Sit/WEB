@@ -169,8 +169,6 @@ a {
     z-index: -2; /* Plasează sub textul din background */
 }
 
-
-
 .words-about
 {
 
@@ -387,6 +385,11 @@ footer
     .ico 
     {
         width: 5vw;
+        margin: 0 10px 0 10px;
+    }
+    .ico-container
+    {
+        margin: 5px 60px 10px 60px;
     }
     footer p {
         font-size: 4vw; 

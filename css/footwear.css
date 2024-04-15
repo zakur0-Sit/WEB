@@ -10,18 +10,13 @@ body
     overflow-x: hidden; 
 }
 
-.about
-{
-    text-align: center;
-}
-
 header {
     background: #F6F3E4;
     position: fixed;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;  
+    padding: 10px 20px; 
     width: 100%;
     box-sizing: border-box;
     z-index: 1000;
@@ -92,21 +87,24 @@ a {
     .navbar {
         padding: 0;
     }
+
     .nav-links {
         display: none;  
         position: absolute;  
-        top: 100%; 
+        top: 100%;  
         left: 0%;
         width: 100%;
         background: #E2BA07;
         z-index: 1000;  
-        text-align: center;  
+        text-align: center; 
         padding: 15px 0; 
     }
+
     .nav-links.open {
         display: flex;  
-        flex-direction: column;  
+        flex-direction: column; 
     }
+
     .menu-btn {
         display: block;
         position: absolute;
@@ -115,6 +113,7 @@ a {
         width: 45px;
         cursor: pointer;
     }
+
     .nav-links li {
         margin: 15px 0;  
     }
@@ -134,15 +133,6 @@ section
     justify-content: space-around;
     margin: 150px 0 100px 0;
     width: 100%;
-}
-
-.container-1
-{
-    width: 25%;
-    height: 400px;
-    background-color: rgba(246, 243, 228, 0.7);
-    text-align: center;
-    border-radius: 10px;
 }
 
 .container-2
@@ -171,9 +161,7 @@ section
 {
     width: 200px;
     border-radius: 20px;
-    border: dotted 3px #E2BA07;
     margin: 25px 0 25px 0;
-    
 }
 
 .info
@@ -234,11 +222,158 @@ footer
     align-items: center;
 }
 
-@media only screen and (max-width: 850px) {
+.container-1
+{
+    width: 20%;
+}
+.side-bar
+{
+    width: 100%;
+    height: 100%;
+    background-color: #F9F7EC;
+    border-radius: 10px;
+}
 
-    .nav-links li:hover a {
-        color: white;
-        font-weight: bold;
-        transition: color 0.3s ease;
+.side-bar button
+{
+    margin: 10px 0 20px 30px;
+    padding: 10px 20px 10px 20px;
+    width: 120px;
+    background-color: #000;
+    border: none;
+    border-radius: 20px;
+    color: #fff;
+}
+
+.category>form, .size>form, .price>form
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.brand>form
+{
+    margin: 0 0 20px 50px;
+}
+
+[type="button"]
+{
+    background-color: transparent;
+    border: solid 2px #000;
+    border-radius: 20px;
+    width: 80%;
+    height: 30px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+[type="button"]:hover
+{
+    background-color: #000;
+    color: #fff;
+}
+  
+[type="range"]
+{
+    -webkit-appearance: none;
+    width: 80%;
+    border-radius: 20px;
+}
+
+.drop
+{
+    display: none;
+}
+
+@media only screen and (max-width: 1150px)
+{
+    .info-descript
+    {
+        font-size: 12px;
+    }
+
+    .info
+    {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 950px)
+{
+    .drop
+    {
+        display: block;
+    }
+
+    .container-2
+    {
+        margin: auto;
+        width: 90%;
+    }
+
+    .element>img
+    {
+        width: 150px;
+    }
+
+    .info
+    {
+        width: 60%;
+    }
+
+    .info button
+    {
+        width: 80px;
+        height: 30px;
+    }
+
+    section
+    {
+        display: block
+    }
+
+    .container-1
+    {
+        width: 100%;
+        margin-bottom: 50px;
+    }
+
+    .dropdown-content
+    {
+        display: none;
+    }
+    
+}
+
+@media only screen and (max-width: 600px)
+{
+    .element
+    {
+        flex-direction: column;
+        padding-bottom: 20px;
+    }
+
+    .element>img
+    {
+        width: 200px;
+    }
+
+    .info
+    {
+        width: 80%;
+    }
+
+    .info button
+    {
+        width: 100px;
+        height: 40px;
+    }
+
+    .ico
+    {
+        width: 20px;
+        margin: 0 10px 0 10px;
     }
 }
