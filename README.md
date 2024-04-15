@@ -21,7 +21,7 @@
       </dl>
     </div>
     <section typeof="sa:Abstract" id="abstract" role="doc-abstract">
-      <h2>Abstract Description Project</h2>
+      <h2>Project Description</h2>
       <p>
        Some people may encounter difficulties in choosing the right footwear for certain occasions: job interviews, shows, sumo championships, etc. Therefore, a web application is necessary that allows the selection of footwear, offering various recommendations based on the season, color palette, preferred brand, fashion trends, special features, and/or the individual's adopted style of dress – for example, sporty attire, office wear, and others.
       </p>
@@ -31,34 +31,23 @@
     </section>
     <section id="introduction" role="doc-introduction">
       <!-- review? -->
-      <h2>Porpose and Porduct Scope</h2>
+      <h2>Purpose and Product Scope</h2>
       <p>
-        1
+        The purpose of this application is to serve as a user-friendly slipper site that recommends and acts as an online store for slippers. 
       </p>
-      <p>
-       2
-      </p>
-      <p>
         <a href="http://www.nytimes.com/2016/03/16/science/asap-bio-biologists-published-to-the-internet.html?_r=1">rogue
         scientists</a>  
       </p>
       <p>
-        Our high-level goals are to:
+        Option :
       </p>
       <ul>
-        <li>Enable structured metadata, accessibility, and internationalisation.</li>
+        <li>Home->  If you're unsure about what you'd like to purchase, you can explore our offerings based on the desired season.</li>
         <li>Be fully funcitioning on modern Web browsers.</li>
-        <li>
-          Be customizable for inclusion in arbitrary Web sites, while remaining easy to process
-          and interoperable.
-        </li>
-        <li>Build on top of open, royalty-free standards.</li>
-        <li>Long-term viability as a data format.</li>
+        <li>Footwear-> You can also conduct searches within the application's inventory based on slipper categories, popular brands, desired sizes, and maximum price you're willing to pay. </li>
+        <li>About-> Learn more about us and what we offer.</li>
+        <li>Help-> Don't worry if online shopping is new to you; we provide tutorials on how to use the application and answers to frequently asked questions to make your experience stress-free..</li>
       </ul>
-      <p>
-       using the
-        <code>https://ns.science.ai/</code>
-      </p>
     </section>
     <section id="structure">
       <!-- review? -->
