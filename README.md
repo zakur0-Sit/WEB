@@ -40,7 +40,7 @@
       </p>
       <p>
         <a href="http://www.nytimes.com/2016/03/16/science/asap-bio-biologists-published-to-the-internet.html?_r=1">rogue
-        scientists</a> who choose to publish their articles on their own.
+        scientists</a>  
       </p>
       <p>
         Our high-level goals are to:
@@ -56,19 +56,8 @@
         <li>Long-term viability as a data format.</li>
       </ul>
       <p>
-        Where semantic modeling is concerned, our approach is to stick as much as possible to the
-        schema.org. Beyond the obvious advantages there are in reusing a vocabulary that is
-        supported by all the major search engines and is actively being developed towards enabling a
-        shared understanding of many useful concepts, it also provides a protection against
-        <i>ontological drift</i> whereby a new vocabulary is defined by a small group with
-        insufficient input from a broader community of practice. A language that solely a single
-        participant understands is of limited value.
-      </p>
-      <p>
-        In a limited number of cases we have had to depart from schema.org, using the
-        <code>https://ns.science.ai/</code>, prefixed with <code>sa:</code>. Our goal is to work
-        with schema.org in order to extend their vocabulary, and we will align our usage with the
-        outcome of these discussions.
+       using the
+        <code>https://ns.science.ai/</code>
       </p>
     </section>
     <section id="structure">
