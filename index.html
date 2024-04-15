@@ -83,35 +83,8 @@
         <p>Copyright &copy;2024; Designed by FoSA Team</p>
     </footer>
 	
-	<script>
-        document.addEventListener('DOMContentLoaded', () => {
-       
-            const menuBtn = document.querySelector('.menu-btn');
-            const navLinks = document.querySelector('.nav-links');
-
-            menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('open');
-            });
-
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 850) {
-                navLinks.classList.remove('open');
-            }
-            });
-        });
-
-		const video = document.getElementById('parallax-video');
-		const videoContainer = document.querySelector('.video-container');
-
-		window.addEventListener('scroll', () => {
-			let scroll = window.pageYOffset;
-			let videoPosition = videoContainer.getBoundingClientRect();
- 
-			video.style.top = `${50 + scroll * 0.1}%`; 
-		});
-
-		
-    </script>
+	<script src="js/menu.js"></script>
+	<script src="js/home.js"></script>
 
 </body>
 </html>

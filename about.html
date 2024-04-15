@@ -54,7 +54,7 @@
                             <p class="big-text">Inspired Suggestions</p>
                             <p class="normal-text"> Our team of fashion and technology experts works tirelessly to bring you the most inspired suggestions for footwear purchases, tailored to your needs and preferences.</p>
                         </div>
-                    </div>
+                    </div><br>
                     <img src="img/about/3.png" alt="img">
                 </div>
 
@@ -80,23 +80,7 @@
         <p>Copyright &copy;2024; Designed by FoSA Team</p>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-       
-            const menuBtn = document.querySelector('.menu-btn');
-            const navLinks = document.querySelector('.nav-links');
-
-            menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('open');
-            });
-
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 850) {
-                navLinks.classList.remove('open');
-            }
-            });
-        });
-    </script>
+    <script src="js/menu.js"></script>
     
 </body>
 </html>
