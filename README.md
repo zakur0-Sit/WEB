@@ -12,21 +12,11 @@
       <dl>
         <dt>Authors</dt>
         <dd>
-          Cazacu Ion &&  Țigănescu Ioan Iustin
+          Cazacu Ion abd Țigănescu Ioan Iustin
         </dd>
-        <dt>Bugs &amp; Feedback</dt>
+        <dt>Purpose</dt>
         <dd>
-          <a href="https://github.com/w3c/scholarly-html/issues">Issues and PRs welcome!</a>
-        </dd>
-        <dt>Discussion Group</dt>
-        <dd>
-          The <a href="https://www.w3.org/community/scholarlyhtml/">Scholarly HTML Community
-          Group</a> at <a href="https://w3.org/">W3C</a>
-          (<a href="https://lists.w3.org/Archives/Public/public-scholarlyhtml/">email archives</a>)
-        </dd>
-        <dt>License</dt>
-        <dd>
-          <a href="http://creativecommons.org/licenses/by/4.0/">CC-BY</a>
+          Project done for the Web Devepment Course, FII UAIC, Year 2
         </dd>
       </dl>
     </div>
