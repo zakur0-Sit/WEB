@@ -51,6 +51,10 @@
       <section id="Root">
       <h2>Intended Audience and Buyer Suggestions</h2>
         <p> Our application has three types of users: readers, who can follow the latest fashion news; followers, who receive notifications with suggestions based on their history of likes and searches; and buyers, who are looking to purchase something special. </p>
+         <h2> Operating Environment </h2>
+        <p> Our intention is to create a web application that is easy to use on any device, from smartphones to laptops, regardless of the platform or operating system, which is why we designed it to be responsive. </p>
+         <h2> User Documentation </h2>
+        <p> Users can familiarize themselves with our activities and what we offer to meet their needs, while also benefiting from our flexibility through a dynamic system that provides answers to common questions about using the application and resolving any uncertainties. All these functionalities are available on the "About" and "Help" pages in the header. </p>
         <!-- review? -->
         <!-- review? -->
         <!-- review? -->
