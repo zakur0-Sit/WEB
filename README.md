@@ -21,7 +21,7 @@
       </dl>
     </div>
     <section typeof="sa:Abstract" id="abstract" role="doc-abstract">
-      <h2>Abstract</h2>
+      <h2>Abstract description project</h2>
       <p>
        Some people may encounter difficulties in choosing the right footwear for certain occasions: job interviews, shows, sumo championships, etc. Therefore, a web application is necessary that allows the selection of footwear, offering various recommendations based on the season, color palette, preferred brand, fashion trends, special features, and/or the individual's adopted style of dress – for example, sporty attire, office wear, and others.
       </p>
