@@ -338,3 +338,49 @@ footer
         margin-right: 20px;  
     }
 }
+
+
+
+
+@media only screen and (max-width: 600px) {
+   
+
+    .container-1 > img {
+        height: 20%; 
+        max-width: 40%;  
+        margin-left: 20px; 
+        margin-right: 20px;  
+    }
+    .container-1{
+        margin: 40px;
+    }
+    
+    #whatsetsusapart {
+        margin: 100px;
+    }
+
+    .container-2 > img {
+        height: auto; 
+        max-width: 50%;  
+        margin-left: 20px; 
+        margin-right: 20px;  
+    }
+
+    .container-3  img {
+        height: auto; 
+        max-height: 30%;  
+        margin-left: 20px; 
+        margin-right: 20px;  
+    }
+
+    .container-3 .container-4 .text .big-text{
+        margin: 50px;
+    }
+
+    .container-4  img {
+        height: auto; 
+        max-width: 90%;  
+        margin-left: 20px; 
+        margin-right: 20px;  
+    }
+}
