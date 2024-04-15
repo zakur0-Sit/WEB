@@ -30,19 +30,17 @@
       </p>
     </section>
     <section id="introduction" role="doc-introduction">
-      <!-- review? -->
       <h2>Purpose and Product Scope</h2>
       <p>
         The purpose of this application is to serve as a user-friendly slipper site that recommends and acts as an online store for slippers. 
       <h3> Option : </h3>
-    <li> Home-> If you're unsure about what you'd like to purchase, you can explore our offerings based on the desired season.</li>
-        <li>Footwear-> You can also conduct searches within the application's inventory based on slipper categories, popular brands, desired sizes, and maximum price you're willing to pay. You can like a pair of slippers, which will then appear in your account history. You also have the option to purchase the desired pair with a simple click of a button; you will be redirected to the page where you can make the purchase. </li>
-        <li>About-> Learn more about us and what we offer.</li>
-        <li>Help-> Don't worry if online shopping is new to you; we provide tutorials on how to use the application and answers to frequently asked questions to make your experience stress-free..</li>
+    <li> Home: If you're unsure about what you'd like to purchase, you can explore our offerings based on the desired season.</li>
+        <li>Footwear: You can also conduct searches within the application's inventory based on slipper categories, popular brands, desired sizes, and maximum price you're willing to pay. You can like a pair of slippers, which will then appear in your account history. You also have the option to purchase the desired pair with a simple click of a button; you will be redirected to the page where you can make the purchase. </li>
+        <li>About: Learn more about us and what we offer.</li>
+        <li>Help: Don't worry if online shopping is new to you; we provide tutorials on how to use the application and answers to frequently asked questions to make your experience stress-free..</li>
       </ul>
     </section>
     <section id="structure">
-      <!-- review? -->
       <h2>Document Conventions</h2>
       <h3>Colors</h3>
       <p> Throughout the project, we used two main colors: #E2BA07 (golden yellow) and white (#fff). </p>
@@ -55,6 +53,20 @@
         <p> Our intention is to create a web application that is easy to use on any device, from smartphones to laptops, regardless of the platform or operating system, which is why we designed it to be responsive. </p>
          <h2> User Documentation </h2>
         <p> Users can familiarize themselves with our activities and what we offer to meet their needs, while also benefiting from our flexibility through a dynamic system that provides answers to common questions about using the application and resolving any uncertainties. All these functionalities are available on the "About" and "Help" pages in the header. </p>
+        <h2> Dependencies </h2>
+        <p> We rely on the latest trending applications by storing a large collection of slippers, allowing users to easily and quickly make purchases when they find something they like. </p>
+         <h2> System Features </h2>
+          <h3>  Reviews and ratings </h3>
+           <p>  Users can leave reviews and ratings for products they have purchased, helping others form opinions about the quality and comfort of the shoes. </p>
+          <h3>  Notifications and Alerts </h3>
+           <p>  Users can opt-in to receive notifications about discounts, promotions, or the arrival of new models in stock. </p>   
+          <h3>  Social integration </h3>
+           <p>   Ability to share favorite products on social networks or recommend them to other users. </p> 
+          <h3>  User History and Account Management </h3>
+           <p>  Users can view their purchase history, manage account details, and save products to a wishlist for future access.</p>  
+           <h3>  Support and Assistance </h3>
+           <p>   A technical support section or real-time chat system to answer user questions and provide live assistance.</p>
+
         <!-- review? -->
         <!-- review? -->
         <!-- review? -->
