@@ -46,14 +46,9 @@
     </section>
     <section id="structure">
       <!-- review? -->
-      <h2>Structure</h2>
+      <h2>Document Conventions</h2>
       <p>
-        A Scholarly HTML document is a valid <a role="doc-biblioref">HTML</a> document that follows
-        some additional rules to specialize its meaning and make it predictable to processors
-        wishing to produce or consume scholarly articles. These rules are outlined in the following
-        sections. While valuable on its own, the content structure defined here is simply a stepping
-        stone to enable semantic enrichment, detailed in <a href="#semantics">Semantics
-        Overlays</a>. If you would like to write a validation tool, please join us on GitHub.
+       Throughout the project, we used two main colors: #E2BA07 (golden yellow) and white (#fff). For fonts, we utilized bold styles and fonts like Poppins and Inter. In our design, we played with font sizes (1.1em, 2vw, 24px) and weights (600, 500, 14vw) to create visually engaging elements.
       </p>
       <section id="Root">
         <!-- review? -->
