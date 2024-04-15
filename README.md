@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>FoSA</title>
+    <h1>FoSA</h1>
     <link rel="stylesheet" href="css/scholarly.min.css">
     
   </head>
