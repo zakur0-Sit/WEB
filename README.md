@@ -12,11 +12,7 @@
       <dl>
         <dt>Authors</dt>
         <dd>
-          Tzviya Siegman (Wiley)
-          &amp;
-          <a href="http://berjon.com/">Robin Berjon</a>,
-          <a href="https://twitter.com/robinberjon">@robinberjon</a>
-           (<a href="http://science.ai/">science.ai</a>)
+          Cazacu Ion &&  Țigănescu Ioan Iustin
         </dd>
         <dt>Bugs &amp; Feedback</dt>
         <dd>
