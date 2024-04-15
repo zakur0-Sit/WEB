@@ -10,42 +10,47 @@ body
     overflow-x: hidden; 
 }
 
-.about
-{
-    text-align: center;
-}
-
 header {
     background: #F6F3E4;
     position: fixed;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0 10px 70px;
+    padding: 10px 20px; 
     width: 100%;
     box-sizing: border-box;
     z-index: 1000;
     top: 0;
 }
 
-header>a>img
-{
+.navbar a[href="index.html"] img {
     width: 80px;
+    margin-left: 2vw;
 }
 
-header > ul {
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 500px;
-    list-style-type: none;
+    width: 100%;
 }
 
-.logo img{
-    position: absolute;
-    max-width: 10px;
-    max-height: 10px;
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+}
+
+.nav-links li:hover a {
+    color: #E2BA07;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-links li {
+    margin: 0 15px;
 }
 
 a {
@@ -54,12 +59,71 @@ a {
 }
 
 #sign-in {
-    margin-right: 20px;
     width: 110px;
     height: 35px;
     border-radius: 20px;
     border: none;
     background-color: #E2BA07;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#sign-in:hover{
+    color: #000;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.menu-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 40px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 850px) {
+    .navbar {
+        padding: 0;
+    }
+
+    .nav-links {
+        display: none;  
+        position: absolute;  
+        top: 100%;  
+        left: 0%;
+        width: 100%;
+        background: #E2BA07;
+        z-index: 1000;  
+        text-align: center; 
+        padding: 15px 0; 
+    }
+
+    .nav-links.open {
+        display: flex;  
+        flex-direction: column; 
+    }
+
+    .menu-btn {
+        display: block;
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 45px;
+        cursor: pointer;
+    }
+
+    .nav-links li {
+        margin: 15px 0;  
+    }
+}
+
+
+@media only screen and (min-width: 851px) {
+    .menu-btn {
+        display: none;  
+    }
 }
 
 section
@@ -74,12 +138,13 @@ section
 
 .container-1
 {
-    width: 60%;
-    margin: 100px 0 100px 50px;
+    width: 70%;
+    margin: 100px 0 100px 30px;
 }
 
 .element
 {
+    border-radius: 10px;
     background-color: #F6F3E4;;
 }
 
@@ -131,14 +196,6 @@ h3
     border-radius: 20px;
 }
 
-.container-3
-{
-    margin: 5px 100px 0 100px;
-    width: 180px;
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-}
-
 .ico-container 
 {
     margin: 5px 100px 10px 100px;
@@ -159,4 +216,154 @@ footer
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+@media only screen and (max-width: 1300px) {
+    
+    .container-1
+    {
+        width: 80%;
+        position: relative;
+        top: -20px;
+    }
+
+    .info-model
+    {
+        width: 400px;
+    }
+
+    .element img
+    {
+        width: 250px;
+    }
+
+    .container-2
+    {
+        top: -200px;
+    }
+
+    .account-image
+    {
+        width: 200px;
+    }
+
+}
+
+@media only screen and (max-width: 1040px)
+{
+    .container-1
+    {
+        width: 90%;
+        top: -100px;
+    }
+
+    .info-model
+    {
+        width: 300px;
+    }
+
+    .element img
+    {
+        width: 200px;
+    }
+
+    .container-2
+    {
+        top: -250px;
+    }
+
+    .account-image
+    {
+        width: 150px;
+    }
+
+    .other
+    {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 850px)
+{
+    .container-2
+    {
+        display: none;
+    }
+
+    .container-1
+    {
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 650px)
+{
+    .info-model>p
+    {
+        font-size: 14px;
+    }
+
+    .model img
+    {
+        width: 150px
+    };
+}
+
+@media only screen and (max-width: 590px)
+{
+    .model
+    {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .element
+    {
+        width: 400px;
+    }
+
+    .container-1
+    {
+        margin-top: 250px;
+        position: initial;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    footer
+    {
+        margin-top: 200px;
+    }
+
+    .info-model
+    {
+        margin: 20px 0 20px 0px;
+    }
+    
+    .ico 
+    {
+        width: 5vw;
+        margin: 0 10px 0 10px;
+    }
+    .ico-container
+    {
+        margin: 5px 60px 10px 60px;
+    }
+
+}
+
+@media only screen and (max-width: 450px)
+{
+    .element
+    {
+        width: 300px;
+    }
+
+    .info-model
+    {
+        width: 250px;
+    }
 }
