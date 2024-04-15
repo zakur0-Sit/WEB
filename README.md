@@ -21,7 +21,7 @@
       </dl>
     </div>
     <section typeof="sa:Abstract" id="abstract" role="doc-abstract">
-      <h2>Abstract description project</h2>
+      <h2>Abstract Description Project</h2>
       <p>
        Some people may encounter difficulties in choosing the right footwear for certain occasions: job interviews, shows, sumo championships, etc. Therefore, a web application is necessary that allows the selection of footwear, offering various recommendations based on the season, color palette, preferred brand, fashion trends, special features, and/or the individual's adopted style of dress – for example, sporty attire, office wear, and others.
       </p>
@@ -31,34 +31,14 @@
     </section>
     <section id="introduction" role="doc-introduction">
       <!-- review? -->
-      <h2>Introduction</h2>
+      <h2>Porpose and Porduct Scope</h2>
       <p>
-        Scholarly articles are still primarily published as unstructured data in which most of the
-        information created by the research and the practice of authoring is lost. Document
-        technology has reached a level of maturity and universality that makes this situation no
-        longer tenable. Information cannot be disseminated if it is destroyed before even having
-        left its creator’s laptop.
+        1
       </p>
       <p>
-        According to the New York Times, adding structured information to their recipes improved
-        their discoverability to the point of producing an immediate rise of 52 percent in traffic
-        (<a role="doc-biblioref">NYT</a>). At this point in time, cupcake recipes are reaping
-        greater benefits from modern data format practices than the whole scientific endeavour.
+       2
       </p>
       <p>
-        This places a great burden on tool developers and service providers as well. Anyone who
-        has explored the world of extracting data from inert publications has built their own
-        complex toolset, offering no interoprability, no opportunity for cooperative improvements,
-        and little or no growth in discoverability or meta-analysis in this area.
-      </p>
-      <p>
-        To address these issues, we have followed an approach rooted in established best practices
-        for the reuse of open, standard formats. We propose an "HTML Vernacular", a set of
-        guidelines for the creation of domain-specific data formats that make use of HTML’s
-        inherent extensibility  (<a role="doc-biblioref">Science.AI, 2015</a>). Using the
-        vernacular foundation overlaid with schema.org metadata and proposed extensions to it, we
-        have produced a format for the authoring and interchange of scholarly articles built on
-        open standards, ready for all to use. We hope that this format will be usable
         <a href="http://www.nytimes.com/2016/03/16/science/asap-bio-biologists-published-to-the-internet.html?_r=1">rogue
         scientists</a> who choose to publish their articles on their own.
       </p>
