@@ -52,6 +52,10 @@
        <h3>Fonts</h3>
        <p> For fonts, we utilized bold styles and fonts like Poppins and Inter. In our design, we played with font sizes (1.1em, 2vw, 24px) and weights (600, 500, 14vw) to create visually engaging elements. </p>
       <section id="Root">
+      <h2>Intended Audience and Buyer Suggestions</h2>
+        <p> Our application has three types of users: readers, who can follow the latest fashion news; followers, who receive notifications with suggestions based on their history of likes and searches; and buyers, who are looking to purchase something special. </p>
+        <!-- review? -->
+        <!-- review? -->
         <!-- review? -->
         <h3>The root and <code>head</code></h3>
         <p>
