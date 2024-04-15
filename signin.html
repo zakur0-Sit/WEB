@@ -11,20 +11,21 @@
         <a href="index.html" class="logo"><img src="img/ico/arrow.png" alt="back"></a>
         <a href="index.html" id="back" >Back</a>
     </header>
-    <section>
+    <main>
         <div class="try">
             <div class="color-div"></div>
             <img src="img/sign-in/sign-in-deco.jpg" alt="photo" id="large-image">
         </div>
         <div class="container">
             <p id="reg">Register</p>
-            <forms>
+            <form>
                 <input class="input-line register" type="text" placeholder="E-mail"><br>
-                <input class="input-line register" type="password"placeholder="Password"><br>
+                <input class="input-line register" type="password" placeholder="Password"><br>
                 <input type="checkbox" name="check">
                 <label>Keep me logged</label><br>
-                <a href="account.html"><input class="input-line" type="submit" value="Sign In"></a><br>
-            </forms>
+                <button class="input-line" type="button" onclick="window.location.href='account.html'">Sign In</button>
+
+            </form>
             <br>
             <p>Or Sign In with</p>
             <br>
@@ -35,12 +36,11 @@
             </div>
             <br>
             <div class="new-acc">
-                <p>Don't have an account? &#160</p>
+                <p>Don't have an account? &#160; </p>
                 <a href="signup.html">Sign Up!</a>
             </div>
         </div>
-    </section>
-    
+    </main>
     
 </body>
 </html>

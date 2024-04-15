@@ -125,7 +125,7 @@ a {
     }
 }
 
-section{
+main{
     padding: 100px 200px;
 }
 
@@ -222,7 +222,7 @@ section{
     right: 30px;
     display: flex;
     flex-direction: column;
-    transition: 0.5 ease;
+    transition: ease;
 }
 
 .home .media-icons a{
@@ -295,8 +295,8 @@ section{
 }
 
 @media (max-width:1040px){
-    section{
-        padding: 100px 20 px;
+    main{
+        padding: 100px 20px;
     }
 
     .home .media-icons{
@@ -317,7 +317,7 @@ section{
     
         .content h1 {
             font-size: 24px;
-            scale: 0.7;
+            
         }
     
         .content p {
@@ -346,7 +346,7 @@ section{
     
     .home .content h1 span{
         font-size: 14vw;
-        font-weight: 14vw;
+        font-weight: 600;
     }
     
     .home .content p{

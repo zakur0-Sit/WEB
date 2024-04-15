@@ -126,7 +126,7 @@ a {
     }
 }
 
-section
+main
 {
     display: flex;
     flex-direction: row;
@@ -335,7 +335,7 @@ footer
         height: 30px;
     }
 
-    section
+    main
     {
         display: block
     }

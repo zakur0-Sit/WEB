@@ -14,7 +14,7 @@ body
     flex-direction: column;
 }
 
-section, .container, .reg-ico>div
+main, .container, .reg-ico>div
 {
     display: flex;
     align-items: center;
@@ -103,11 +103,13 @@ input[type="checkbox"]
     background-color: #E2BA07;
 }
 
-input[type="submit"]
+button
 {
+    margin-top: 30px;
     width: 320px;
     background-color: #E2BA07;
     border-radius: 28px;
+    border: none;
 }
 
 .new-acc
