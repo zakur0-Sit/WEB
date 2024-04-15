@@ -34,16 +34,11 @@
       <h2>Purpose and Product Scope</h2>
       <p>
         The purpose of this application is to serve as a user-friendly slipper site that recommends and acts as an online store for slippers. 
-      </p>
-        <a href="http://www.nytimes.com/2016/03/16/science/asap-bio-biologists-published-to-the-internet.html?_r=1">rogue
-        scientists</a>  
-      </p>
       <p>
         Option :
       </p>
       <ul>
         <li>Home->  If you're unsure about what you'd like to purchase, you can explore our offerings based on the desired season.</li>
-        <li>Be fully funcitioning on modern Web browsers.</li>
         <li>Footwear-> You can also conduct searches within the application's inventory based on slipper categories, popular brands, desired sizes, and maximum price you're willing to pay. </li>
         <li>About-> Learn more about us and what we offer.</li>
         <li>Help-> Don't worry if online shopping is new to you; we provide tutorials on how to use the application and answers to frequently asked questions to make your experience stress-free..</li>
