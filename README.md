@@ -21,87 +21,36 @@
       </dl>
     </div>
     <section typeof="sa:Abstract" id="abstract" role="doc-abstract">
-      <h2>Abstract</h2>
+      <h2>Project Description</h2>
       <p>
-        Scholarly HTML is a domain-specific rich document format built entirely on open standards
-        that enables the interoperable exchange of scholarly articles in a manner that is compatible
-        with off-the-shelf browsers. This document describes how Scholarly HTML works and how it is
-        encoded.
+       Some people may encounter difficulties in choosing the right footwear for certain occasions: job interviews, shows, sumo championships, etc. Therefore, a web application is necessary that allows the selection of footwear, offering various recommendations based on the season, color palette, preferred brand, fashion trends, special features, and/or the individual's adopted style of dress – for example, sporty attire, office wear, and others.
+      </p>
+      <p>
+      Information will be provided regarding the acquisition of products of interest (e.g., suggestions such as "spring is approaching, painted boots would be useful for nighttime strolls" or "for dance ceremonies, shoes with steel heels are recommended; pair them with a silver toga"). Each suggestion given to the user will be sent via email, additionally shareable on a social network and open to voting (i.e., rated with 1, 2, ..., 5 "stars" or grades), allowing it to be proposed to others with similar preferences. The generated statistics will adopt HTML, CSV, and XML formats. Data will be sourced from specialized websites.
       </p>
     </section>
     <section id="introduction" role="doc-introduction">
       <!-- review? -->
-      <h2>Introduction</h2>
+      <h2>Purpose and Product Scope</h2>
       <p>
-        Scholarly articles are still primarily published as unstructured data in which most of the
-        information created by the research and the practice of authoring is lost. Document
-        technology has reached a level of maturity and universality that makes this situation no
-        longer tenable. Information cannot be disseminated if it is destroyed before even having
-        left its creator’s laptop.
-      </p>
+        The purpose of this application is to serve as a user-friendly slipper site that recommends and acts as an online store for slippers. 
       <p>
-        According to the New York Times, adding structured information to their recipes improved
-        their discoverability to the point of producing an immediate rise of 52 percent in traffic
-        (<a role="doc-biblioref">NYT</a>). At this point in time, cupcake recipes are reaping
-        greater benefits from modern data format practices than the whole scientific endeavour.
-      </p>
-      <p>
-        This places a great burden on tool developers and service providers as well. Anyone who
-        has explored the world of extracting data from inert publications has built their own
-        complex toolset, offering no interoprability, no opportunity for cooperative improvements,
-        and little or no growth in discoverability or meta-analysis in this area.
-      </p>
-      <p>
-        To address these issues, we have followed an approach rooted in established best practices
-        for the reuse of open, standard formats. We propose an "HTML Vernacular", a set of
-        guidelines for the creation of domain-specific data formats that make use of HTML’s
-        inherent extensibility  (<a role="doc-biblioref">Science.AI, 2015</a>). Using the
-        vernacular foundation overlaid with schema.org metadata and proposed extensions to it, we
-        have produced a format for the authoring and interchange of scholarly articles built on
-        open standards, ready for all to use. We hope that this format will be usable
-        <a href="http://www.nytimes.com/2016/03/16/science/asap-bio-biologists-published-to-the-internet.html?_r=1">rogue
-        scientists</a> who choose to publish their articles on their own.
-      </p>
-      <p>
-        Our high-level goals are to:
+        Option :
       </p>
       <ul>
-        <li>Enable structured metadata, accessibility, and internationalisation.</li>
-        <li>Be fully funcitioning on modern Web browsers.</li>
-        <li>
-          Be customizable for inclusion in arbitrary Web sites, while remaining easy to process
-          and interoperable.
-        </li>
-        <li>Build on top of open, royalty-free standards.</li>
-        <li>Long-term viability as a data format.</li>
+        <li>Home->  If you're unsure about what you'd like to purchase, you can explore our offerings based on the desired season.</li>
+        <li>Footwear-> You can also conduct searches within the application's inventory based on slipper categories, popular brands, desired sizes, and maximum price you're willing to pay. You can like a pair of slippers, which will then appear in your account history. You also have the option to purchase the desired pair with a simple click of a button; you will be redirected to the page where you can make the purchase. </li>
+        <li>About-> Learn more about us and what we offer.</li>
+        <li>Help-> Don't worry if online shopping is new to you; we provide tutorials on how to use the application and answers to frequently asked questions to make your experience stress-free..</li>
       </ul>
-      <p>
-        Where semantic modeling is concerned, our approach is to stick as much as possible to the
-        schema.org. Beyond the obvious advantages there are in reusing a vocabulary that is
-        supported by all the major search engines and is actively being developed towards enabling a
-        shared understanding of many useful concepts, it also provides a protection against
-        <i>ontological drift</i> whereby a new vocabulary is defined by a small group with
-        insufficient input from a broader community of practice. A language that solely a single
-        participant understands is of limited value.
-      </p>
-      <p>
-        In a limited number of cases we have had to depart from schema.org, using the
-        <code>https://ns.science.ai/</code>, prefixed with <code>sa:</code>. Our goal is to work
-        with schema.org in order to extend their vocabulary, and we will align our usage with the
-        outcome of these discussions.
-      </p>
     </section>
     <section id="structure">
       <!-- review? -->
-      <h2>Structure</h2>
-      <p>
-        A Scholarly HTML document is a valid <a role="doc-biblioref">HTML</a> document that follows
-        some additional rules to specialize its meaning and make it predictable to processors
-        wishing to produce or consume scholarly articles. These rules are outlined in the following
-        sections. While valuable on its own, the content structure defined here is simply a stepping
-        stone to enable semantic enrichment, detailed in <a href="#semantics">Semantics
-        Overlays</a>. If you would like to write a validation tool, please join us on GitHub.
-      </p>
+      <h2>Document Conventions</h2>
+      <h3>Colors</h3>
+      <p> Throughout the project, we used two main colors: #E2BA07 (golden yellow) and white (#fff). </p>
+       <h3>Fonts</h3>
+       <p> For fonts, we utilized bold styles and fonts like Poppins and Inter. In our design, we played with font sizes (1.1em, 2vw, 24px) and weights (600, 500, 14vw) to create visually engaging elements. </p>
       <section id="Root">
         <!-- review? -->
         <h3>The root and <code>head</code></h3>
