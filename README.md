@@ -47,9 +47,10 @@
     <section id="structure">
       <!-- review? -->
       <h2>Document Conventions</h2>
-      <p>
-       Throughout the project, we used two main colors: #E2BA07 (golden yellow) and white (#fff). For fonts, we utilized bold styles and fonts like Poppins and Inter. In our design, we played with font sizes (1.1em, 2vw, 24px) and weights (600, 500, 14vw) to create visually engaging elements.
-      </p>
+      <h3>Colors</h3>
+      <p> Throughout the project, we used two main colors: #E2BA07 (golden yellow) and white (#fff). </p>
+       <h3>Fonts</h3>
+       <p> For fonts, we utilized bold styles and fonts like Poppins and Inter. In our design, we played with font sizes (1.1em, 2vw, 24px) and weights (600, 500, 14vw) to create visually engaging elements. </p>
       <section id="Root">
         <!-- review? -->
         <h3>The root and <code>head</code></h3>
