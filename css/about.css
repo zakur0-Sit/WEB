@@ -217,6 +217,8 @@ section>p
     display: grid;
     grid-template-columns: repeat(2,1fr);
     margin-bottom: 200px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .container-4
@@ -236,6 +238,12 @@ section>p
     font-weight: 800;
     font-style: italic;
 }
+
+.container-4, .container-5 {
+    width: 100%;
+    box-sizing: border-box;
+}
+
 
 .container-5 .big-text
 {
@@ -275,18 +283,17 @@ footer
 }
 
 @media only screen and (max-width: 850px) {
-    /* Ajustați dimensiunile textului și imaginilor la dimensiunile dorite pentru ecrane mici */
     .big-text {
-        font-size: 24px; /* Redu dimensiunea textului mare */
-        margin-bottom: 10px; /* Redu spațiul de dedesubt al textului mare */
+        font-size: 24px;  
+        margin-bottom: 10px;  
     }
 
     .normal-text {
-        font-size: 18px; /* Redu dimensiunea textului normal */
+        font-size: 18px;  
     }
 
     .container-1, .container-2, .container-4, .container-5 {
-        padding: 0 30px; /* Redu padding-ul containerelor pentru a lăsa mai mult spațiu pe ecranele mici */
+        padding: 0 30px; 
     }
     
     .text-section{
@@ -321,11 +328,13 @@ footer
     }
 
     .container-3  img {
-        height: auto; 
+        width: 100%;
+        height: auto;
         max-height: 30%;  
         margin-left: 20px; 
         margin-right: 20px;  
     }
+    
 
     .container-3 .container-4 .text .big-text{
         margin: 50px;
@@ -339,31 +348,43 @@ footer
     }
 }
 
-
-
+@media only screen and (max-width: 650px) {
+     .container-3{
+        display: flex;
+        flex-direction: column;
+     }
+}
 
 @media only screen and (max-width: 600px) {
+    .text-section .big-text, {
+        font-size: 80%;
+        margin-left: -10%;
+        margin-right: -10%;
+    }
+
+    .normal-text{
+        font-size: 80%;
+    }
+
+    .big-text {
+        font-size: 90%;
+    }
+
+    .container-2 {
+        height: 120%;
+        box-sizing: border-box;
+    }
+
    
 
-    .container-1 > img {
-        height: 20%; 
-        max-width: 40%;  
-        margin-left: 20px; 
-        margin-right: 20px;  
-    }
-    .container-1{
-        margin: 40px;
-    }
-    
-    #whatsetsusapart {
-        margin: 100px;
+    .container-2 .big-text {
+        font-size: 90%;
+        margin-left: -10%;
+        margin-right: -10%;
     }
 
-    .container-2 > img {
-        height: auto; 
-        max-width: 50%;  
-        margin-left: 20px; 
-        margin-right: 20px;  
+    .container-2 .normal-text{
+        font-size: 80%;
     }
 
     .container-3  img {
@@ -383,4 +404,9 @@ footer
         margin-left: 20px; 
         margin-right: 20px;  
     }
+}
+
+body, html {
+    width: 100%;
+    overflow-x: hidden;
 }
