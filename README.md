@@ -12,11 +12,11 @@
       <dl>
         <dt>Authors</dt>
         <dd>
-          Cazacu Ion abd Țigănescu Ioan Iustin
+          Cazacu Ion and Țigănescu Ioan Iustin
         </dd>
         <dt>Purpose</dt>
         <dd>
-          Project done for the Web Devepment Course, FII UAIC, Year 2
+          Project done for the Web Development Course, FII UAIC, Year 2
         </dd>
       </dl>
     </div>
