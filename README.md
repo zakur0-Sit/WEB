@@ -23,10 +23,10 @@
     <section typeof="sa:Abstract" id="abstract" role="doc-abstract">
       <h2>Abstract</h2>
       <p>
-        Scholarly HTML is a domain-specific rich document format built entirely on open standards
-        that enables the interoperable exchange of scholarly articles in a manner that is compatible
-        with off-the-shelf browsers. This document describes how Scholarly HTML works and how it is
-        encoded.
+       Some people may encounter difficulties in choosing the right footwear for certain occasions: job interviews, shows, sumo championships, etc. Therefore, a web application is necessary that allows the selection of footwear, offering various recommendations based on the season, color palette, preferred brand, fashion trends, special features, and/or the individual's adopted style of dress – for example, sporty attire, office wear, and others.
+      </p>
+      <p>
+      Information will be provided regarding the acquisition of products of interest (e.g., suggestions such as "spring is approaching, painted boots would be useful for nighttime strolls" or "for dance ceremonies, shoes with steel heels are recommended; pair them with a silver toga"). Each suggestion given to the user will be sent via email, additionally shareable on a social network and open to voting (i.e., rated with 1, 2, ..., 5 "stars" or grades), allowing it to be proposed to others with similar preferences. The generated statistics will adopt HTML, CSV, and XML formats. Data will be sourced from specialized websites.
       </p>
     </section>
     <section id="introduction" role="doc-introduction">
