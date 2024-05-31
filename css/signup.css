@@ -98,9 +98,18 @@ input
     height: 40px;
 }
 
-input[type="checkbox"]
+.alert
 {
-    background-color: #E2BA07;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 350px;
+    height: 30px;
+    color: #fff;
+    border-radius: 20px;
+    background-color: tomato;
+    margin-top: 8px;
 }
 
 button

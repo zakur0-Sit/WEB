@@ -1,29 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/help.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-    <title>FoSA</title>
-</head>
-
-<body>
-    <header>
-        <nav class="navbar">
-            <a href="index.html"><img src="img/ico/smol-logo.png" alt="logo"></a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="footwear.html">Footwear</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="help.html">Help</a></li>     
-                <li><button id="sign-in" class="input-line" type="button" onclick="window.location.href='signin.html'">Sign In</button></li>
-            </ul>  
-            <img src="./img/ico/menu-btn.png" alt="menu-button-img" class="menu-btn">
-        </nav>    
-    </header>
-
+<?php
+    $title = "Help";
+    $css = "css/help.css";
+    require "header.php";
+?>
     <main class="home">
         <video class="video-slide active" src="img/help/video1.mp4" autoplay muted loop></video>
         <video class="video-slide" src="img/help/video2.mp4" autoplay muted loop></video>

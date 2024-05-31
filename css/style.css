@@ -23,7 +23,7 @@ header {
     top: 0;
 }
 
-.navbar a[href="index.html"] img {
+.navbar a[href="index.php"] img {
     width: 80px;
     margin-left: 2vw;
 }
@@ -354,7 +354,7 @@ footer
         top: 0;
     }
     
-    .navbar a[href="index.html"] img {
+    .navbar a[href="index.php"] img {
         width: 20vw;
         margin-left: 2vw;
     }

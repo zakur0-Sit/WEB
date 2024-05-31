@@ -1,26 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FoSA - Footwear</title>
-    <link rel="stylesheet" href="css/footwear.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <nav class="navbar">
-            <a href="index.html"><img src="img/ico/smol-logo.png" alt="logo"></a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="footwear.html">Footwear</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="help.html">Help</a></li>     
-                <li><button id="sign-in" class="input-line" type="button" onclick="window.location.href='signin.html'">Sign In</button></li>
-            </ul>  
-            <img src="./img/ico/menu-btn.png" alt="menu-button-img" class="menu-btn">
-        </nav>    
-    </header>
+<?php
+    $title = "Footwear";
+    $css = "css/footwear.css";
+    require "header.php";
+?>
     <div class="footwear">
         <main>
             <div class="container-1">
@@ -132,17 +114,9 @@
             </div>
         </main>
     </div>
-    <footer>
-        <div class="ico-container">
-            <a href="#"><img class="ico" src="img/ico/google.png" alt="img"></a>
-            <a href="#"><img class="ico" src="img/ico/instagram.png" alt="img"></a>
-            <a href="#"><img class="ico" src="img/ico/tik-tok.png" alt="img"></a>
-			<a href="#"><img class="ico" src="img/ico/x.png" alt="img"></a>
-        </div>
-		<br>
-        <p>Copyright &copy;2024; Designed by FoSA Team</p>
-    </footer>
     <script src="js/footwear.js"></script>
     <script src="js/menu.js"></script>
-</body>
-</html>
+
+<?php
+    require "footer.php";
+?>
