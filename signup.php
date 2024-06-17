@@ -54,6 +54,19 @@
 
                         $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password_hash')";
                         mysqli_query($connection, $sql);
+
+                        $profile_image_path = 'img/account/account-image.jpg';
+                        $profile_image = mysqli_real_escape_string($connection, file_get_contents($profile_image_path));
+                        $shoes_size=0;
+                        $sql = "SELECT * FROM favorites_colors";
+                        $result = mysqli_query($connection, $sql);
+                        
+                        $id_colors_favorite = mysqli_num_rows($result);
+                        $sql = "INSERT INTO account_details (username, profile_image, shoes_size, id_colors_favorite) VALUES ('$username', '$profile_image', '$shoes_size', '$id_colors_favorite')";
+                        mysqli_query($connection, $sql);
+
+                        $sql = "INSERT INTO favorites_colors (red, yellow, blue, black, white, id) VALUES ('0', '0', '0', '0', '0', '$id_colors_favorite')";
+                        mysqli_query($connection, $sql);
                         header("Location: signin.php");
                         exit();
                     }
