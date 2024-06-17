@@ -237,7 +237,11 @@ h3
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+<<<<<<< HEAD
     z-index: 2000;
+=======
+    z-index: 1000;
+>>>>>>> dd1026b3422fd6644ea2e92d04da988e3c66bb52
     display: none;
 }
 
@@ -293,6 +297,7 @@ h3
     margin-bottom: 10px;  
 }
 
+<<<<<<< HEAD
 .blur {
     filter: blur(2px);
 }
@@ -306,6 +311,10 @@ h3
     background-color: rgba(0, 0, 0, 0.5); /* Fundal semi-transparent */
     backdrop-filter: blur(5px); /* Aplică efect de blur */
     z-index: 1000; /* Asigură că este peste toate celelalte elemente */
+=======
+.blur-background {
+    filter: blur(5px);
+>>>>>>> dd1026b3422fd6644ea2e92d04da988e3c66bb52
 }
 
 footer 
