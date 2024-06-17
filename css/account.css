@@ -207,6 +207,107 @@ h3
     margin: 0 20px 0 20px;
 }
 
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info p.name {
+    margin-right: 10px;
+}
+
+.edit-ico {
+    width: 30px;
+    height: 30px; 
+    cursor: pointer;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.edit-ico:hover {
+    transform: scale(1.1);
+}
+
+#edit-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 2000;
+    display: none;
+}
+
+#edit-popup label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#edit-popup input[type="text"],
+#edit-popup select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#edit-popup input[type="file"] {
+    margin-bottom: 10px;
+}
+
+#edit-popup input[type="submit"] {
+    background-color: #E2BA07;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#edit-popup input[type="submit"]:hover {
+    background-color: #FFD700;
+}
+
+.color-checkbox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Spațiu între opțiuni */
+    margin-bottom: 10px;
+}
+
+.color-checkbox input[type="checkbox"] {
+    margin-right: 5px; /* Spațiu între checkbox și etichetă */
+}
+
+.color-checkbox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;  
+}
+
+.color-checkbox input[type="checkbox"] {
+    margin-bottom: 10px;  
+}
+
+.blur {
+    filter: blur(2px);
+}
+
+.popup-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundal semi-transparent */
+    backdrop-filter: blur(5px); /* Aplică efect de blur */
+    z-index: 1000; /* Asigură că este peste toate celelalte elemente */
+}
+
 footer 
 {
     display: flex;

@@ -36,6 +36,7 @@
                         echo "<div class='alert'>Invalid email or password</div>";
                     else
                     {
+                        setcookie("user", $email, time() + (86400 * 30), "/");
                         header("Location: account.php");
                         exit();
                     }
