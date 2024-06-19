@@ -3,7 +3,6 @@ $title = "Account";
 $css = "css/account.css";
 require "header.php";
 
-// Gestionarea actualizărilor
 require_once "database.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
