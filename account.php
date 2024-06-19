@@ -5,6 +5,12 @@ require "header.php";
 
 require_once "database.php";
 
+if(!isset($_COOKIE["user"]))
+{
+    header("Location: signin.php");
+    exit();
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_COOKIE['user'])) {
         $email = $_COOKIE['user'];
@@ -175,6 +181,8 @@ if (isset($_COOKIE['user'])) {
                 <h4 class="size"><br> Size : <i><?php echo isset($details['shoes_size']) ? 'EU ' . htmlspecialchars($details['shoes_size'], ENT_QUOTES, 'UTF-8') : 'Unknown'; ?></i></h4>
                 <h4 id="fav-color">Favorite color : <i><?php echo $favoriteColorsText; ?></i></h4>
             </div>
+
+            <button onclick="window.location.href = 'logout.php'" class="logout">Logout</button>
         </div>
 
         <div id="edit-popup" style="display: none;">
