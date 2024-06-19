@@ -165,7 +165,6 @@ if (isset($_COOKIE['user'])) {
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
 
         <div class="container-2">
             <img class="account-image" src="data:image/jpeg;base64,<?php echo base64_encode($details['profile_image']); ?>" alt="profile image"><br>
@@ -243,82 +242,7 @@ function closePopup() {
 document.getElementById('edit-icon').addEventListener('click', openPopup);
 document.getElementById('popup-background').addEventListener('click', closePopup);
 </script>
-=======
->>>>>>> dd1026b3422fd6644ea2e92d04da988e3c66bb52
 
-        <div class="container-2">
-            <img class="account-image" src="data:image/jpeg;base64,<?php echo base64_encode($details['profile_image']); ?>" alt="profile image"><br>
-            <div class="user-info">
-                <p class="name"><?php echo $username; ?></p>
-                <img id="edit-icon" class="edit-ico" src="img/ico/edit.png" alt="Edit Profile">
-            </div>
-            <div class="other">
-                <h4 class="size"><br> Size : <i><?php echo isset($details['shoes_size']) ? 'EU ' . htmlspecialchars($details['shoes_size'], ENT_QUOTES, 'UTF-8') : 'Unknown'; ?></i></h4>
-                <h4 id="fav-color">Favorite color : <i><?php echo $favoriteColorsText; ?></i></h4>
-            </div>
-        </div>
-
-        <div id="edit-popup" style="display: none;">
-            <form id="edit-form" method="post" action="account.php" enctype="multipart/form-data">
-                <label for="profile-image">Profile picture:</label><br>
-                <input type="file" id="profile-image" name="profile-image"><br>
-
-                <label for="username">Username:</label><br>
-                <input type="text" id="username" name="username"><br>
-
-                <label for="shoe-size">Shoe size:</label><br>
-                <select id="shoe-size" name="shoe-size">
-                    <option value="">Select size</option>
-                    <option value="36">EU 36</option>
-                    <option value="37">EU 37</option>
-                    <option value="38">EU 38</option>
-                    <option value="39">EU 39</option>
-                    <option value="40">EU 40</option>
-                    <option value="41">EU 41</option>
-                    <option value="42">EU 42</option>
-                    <option value="43">EU 43</option>
-                </select><br>
-
-                <label>Favorite colors:</label>
-                <div class="color-checkbox">
-                    <input type="checkbox" id="red" name="colors[]" value="red">
-                    <label for="red">Red</label>
-
-                    <input type="checkbox" id="yellow" name="colors[]" value="yellow">
-                    <label for="yellow">Yellow</label>
-
-                    <input type="checkbox" id="blue" name="colors[]" value="blue">
-                    <label for="blue">Blue</label>
-
-                    <input type="checkbox" id="black" name="colors[]" value="black">
-                    <label for="black">Black</label>
-
-                    <input type="checkbox" id="white" name="colors[]" value="white">
-                    <label for="white">White</label>
-                </div>
-
-                <input type="submit" value="Save">
-            </form>
-        </div>
-        <div id="popup-background" style="display: none;"></div>
-        <script>
-            const popupBackground = document.getElementById('popup-background');
-
-            function openPopup() {
-                document.getElementById('edit-popup').style.display = 'block';
-                popupBackground.style.display = 'block';
-            }
-
-            function closePopup() {
-                document.getElementById('edit-popup').style.display = 'none';
-                popupBackground.style.display = 'none';
-            }
-
-            document.getElementById('edit-icon').addEventListener('click', openPopup);
-            document.getElementById('popup-background').addEventListener('click', closePopup);
-        </script>
-    </main>
-</div>
 <?php
 require "footer.php";
 ?>

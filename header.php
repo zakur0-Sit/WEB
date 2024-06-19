@@ -16,7 +16,14 @@
                 <li><a href="footwear.php">Footwear</a></li>
                 <li><a href="about.php">About</a></li>
                 <li><a href="help.php">Help</a></li>
-                <li><button id="sign-in" class="input-line" type="button" onclick="window.location.href='signin.php'">Sign In</button></li>
+                
+                <?php
+                if (isset($_COOKIE['user'])) {
+                    echo '<li><button id="sign-in" class="input-line" type="button" onclick="window.location.href=\'account.php\'">Account</button></li>';
+                } else {
+                    echo '<li><button id="sign-in" class="input-line" type="button" onclick="window.location.href=\'signin.php\'">Sign In</button></li>';
+                }
+                ?>
             </ul>
             <img src="img/ico/menu-btn.png" alt="menu-button-img" class="menu-btn">
         </nav>
