@@ -73,32 +73,53 @@
                 // Convert the result to JSON format to pass to JavaScript
                 $shoes_json = json_encode($shoes);
             ?>
-            <!-- <script>
-                // Log the shoes data to the console
-                const shoesData = <?php echo $shoes_json; ?>;
-                console.log(shoesData);
-            </script> -->
             
-            <!-- Generarea HTML-ului pentru fiecare pereche de încălțăminte -->
+
             <?php
                 foreach ($shoes as $shoe) {
                     echo '<div class="element">';
                     echo '<img src="data:image/jpeg;base64,' . base64_encode($shoe['image']) . '" alt="image">';
                     echo '<div class="info">';
                     echo '<p class="info-name"><strong>' . htmlspecialchars($shoe['name_shoes']) . '</strong></p><br>';
-                    echo '<p class="info-descript">' . nl2br(htmlspecialchars($shoe['descript'])) . '</p><br>';
+                    echo '<p class="info-descript">' . nl2br(htmlspecialchars($shoe['description'])) . '</p><br>';
                     echo '<p class="info-price">' . htmlspecialchars($shoe['price']) . '$</p>';
                     echo '<button type="button" onclick="window.location.href=\'#\'">Buy now</button>';
-                    echo '<img class="like" src="img/ico/empty_heart.png" alt="image">';
+                    echo '<button class="size-button">33</button>';
+                    echo '<button class="size-button">35</button>';
+                    echo '<button class="size-button">40</button>';
+                    echo '<button class="size-button">45</button>';
+                    echo '<div class="size-buttons">';
+                
+                    echo '</div>';
+                    echo '<img class="like heart" src="img/ico/empty_heart.png" alt="image">';
+                    echo '</div>';
+
+                    echo '<div class="rating-container" style="position: relative; top: -100px; right: 10px; display: flex;" >';
+                    echo '<p class="score">8.5/10</p>';
+                    echo '<button class="rating-button">Rating</button>';
                     echo '</div>';
                     echo '</div>';
-                }
+                }                               
             ?>
+
+                            
         </div>
     </main>
 </div>
 <script src="js/footwear.js"></script>
 <script src="js/menu.js"></script>
+
+<<script>
+document.querySelectorAll('.heart').forEach(function(heart) {
+    heart.addEventListener('click', function() {
+        if (this.src.endsWith('empty_heart.png')) {
+            this.src = 'img/ico/full_heart.png';
+        } else {
+            this.src = 'img/ico/empty_heart.png';
+        }
+    });
+});
+</script>
 
 <?php
     require "footer.php";
