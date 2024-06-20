@@ -287,6 +287,68 @@ footer
     display: none;
 }
 
+.container-2 {
+    position: relative;
+}
+
+.element {
+    position: relative;
+}
+
+.rating-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7); 
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.score {
+    margin-right: 10px;
+    font-weight: bold;
+    color: white;  
+}
+
+.rating-button {
+    padding: 5px 10px;
+    background-color: #E2BA07;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+.rating-button:hover {
+    background-color: #D4A907;
+}
+
+.size-buttons {
+    display: flex;
+    margin: 10px 0;
+}
+
+.size-button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-right: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.size-button:hover {
+    background-color: #444;
+}
+
+
+.like:hover {
+        cursor: pointer; 
+}
+
 @media only screen and (max-width: 1150px)
 {
     .info-descript
@@ -334,6 +396,8 @@ footer
         width: 80px;
         height: 30px;
     }
+
+   
 
     main
     {

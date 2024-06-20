@@ -2,11 +2,9 @@
 $title = "Account";
 $css = "css/account.css";
 require "header.php";
-
 require_once "database.php";
 
-if(!isset($_COOKIE["user"]))
-{
+if (!isset($_COOKIE["user"])) {
     header("Location: signin.php");
     exit();
 }
@@ -14,38 +12,37 @@ if(!isset($_COOKIE["user"]))
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_COOKIE['user'])) {
         $email = $_COOKIE['user'];
-
-        // Obținem username-ul
-        $sql = "SELECT username FROM users WHERE email='$email'";
+        $sql = "SELECT id, username FROM users WHERE email='$email'";
         $result = mysqli_query($connection, $sql);
+        if (!$result) {
+            die("Error: " . mysqli_error($connection));
+        }
         $row = mysqli_fetch_assoc($result);
-
         $username = isset($row['username']) ? $row['username'] : null;
+        $id_user = $row['id'];
 
         if ($username) {
             $updateFields = [];
             $updateProfileImage = false;
             $newProfileImagePath = "";
 
-            // Verificăm și adăugăm câmpurile care trebuie actualizate
             if (!empty($_POST['username'])) {
                 $newUsername = mysqli_real_escape_string($connection, $_POST['username']);
-                $updateFields[] = "username='$newUsername'";
-
-                // Actualizăm username-ul și în tabela users
                 $sqlUpdateUsers = "UPDATE users SET username='$newUsername' WHERE email='$email'";
-                mysqli_query($connection, $sqlUpdateUsers);
+                if (!mysqli_query($connection, $sqlUpdateUsers)) {
+                    die("Error updating username: " . mysqli_error($connection));
+                }
             }
 
             if (!empty($_POST['shoe-size'])) {
                 $newShoeSize = mysqli_real_escape_string($connection, $_POST['shoe-size']);
                 $updateFields[] = "shoes_size='$newShoeSize'";
-
-                $sqlUpdateDetails = "UPDATE account_details SET shoes_size='$newShoeSize' WHERE username='$username'";
-                mysqli_query($connection, $sqlUpdateDetails);
+                $sqlUpdateDetails = "UPDATE account_details SET shoes_size='$newShoeSize' WHERE id='$id_user'";
+                if (!mysqli_query($connection, $sqlUpdateDetails)) {
+                    die("Error updating shoe size: " . mysqli_error($connection));
+                }
             }
 
-            // Verificăm dacă a fost încărcată o imagine
             if (!empty($_FILES['profile-image']['name'])) {
                 $newProfileImagePath = 'uploads/' . basename($_FILES['profile-image']['name']);
                 if (move_uploaded_file($_FILES['profile-image']['tmp_name'], $newProfileImagePath)) {
@@ -55,7 +52,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
             }
 
-            // Procesăm culorile favorite
             $colors = ['red' => 0, 'yellow' => 0, 'blue' => 0, 'black' => 0, 'white' => 0];
             if (!empty($_POST['colors'])) {
                 foreach ($_POST['colors'] as $color) {
@@ -65,53 +61,44 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
             }
 
-            // Construim interogarea pentru actualizarea culorilor favorite
             $colorUpdates = [];
             foreach ($colors as $color => $value) {
                 $colorUpdates[] = "$color=$value";
             }
             $colorUpdateQuery = implode(', ', $colorUpdates);
+            $sqlUpdateColors = "UPDATE favorite_colors SET $colorUpdateQuery WHERE id='$id_user'";
+            if (!mysqli_query($connection, $sqlUpdateColors)) {
+                die("Error updating favorite colors: " . mysqli_error($connection));
+            }
 
-            // Actualizăm tabelul favorites_colors
-            $sqlUpdateColors = "UPDATE favorites_colors SET $colorUpdateQuery WHERE id=(SELECT id_colors_favorite FROM account_details WHERE username='$username')";
-            mysqli_query($connection, $sqlUpdateColors);
-
-            // Actualizăm tabelul account_details
             if (!empty($updateFields)) {
                 $updateQuery = implode(', ', $updateFields);
-                $sqlUpdateDetails = "UPDATE account_details SET $updateQuery WHERE username='$username'";
+                $sqlUpdateDetails = "UPDATE account_details SET $updateQuery WHERE id='$id_user'";
                 mysqli_query($connection, $sqlUpdateDetails);
             }
 
-            // Redirecționăm utilizatorul înapoi la pagina de profil pentru a vedea actualizările
             header("Location: account.php");
             exit();
         }
     }
 }
 
-// Preluare date pentru afișare
 if (isset($_COOKIE['user'])) {
     $email = mysqli_real_escape_string($connection, $_COOKIE['user']);
-
-    // Obținem username-ul și email-ul
-    $sql = "SELECT username, email FROM users WHERE email='$email'";
+    $sql = "SELECT id, username FROM users WHERE email='$email'";
     $result = mysqli_query($connection, $sql);
 
     if ($result && mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
         $username = ucfirst(htmlspecialchars($row['username'], ENT_QUOTES, 'UTF-8'));
-        $email = htmlspecialchars($row['email'], ENT_QUOTES, 'UTF-8');
+        $id_user = $row['id'];
 
-        // Obținem informațiile din tabela account_details
-        $sqlDetails = "SELECT profile_image, shoes_size, id_colors_favorite FROM account_details WHERE username='$username'";
+        $sqlDetails = "SELECT profile_image, shoes_size FROM account_details WHERE id='$id_user'";
         $resultDetails = mysqli_query($connection, $sqlDetails);
         $details = mysqli_fetch_assoc($resultDetails);
 
-        // Obținem culorile favorite
         if ($details) {
-            $id_colors_favorites = $details['id_colors_favorite'];
-            $sqlColors = "SELECT red, yellow, blue, black, white FROM favorites_colors WHERE id='$id_colors_favorites'";
+            $sqlColors = "SELECT red, yellow, blue, black, white FROM favorite_colors WHERE id='$id_user'";
             $resultColors = mysqli_query($connection, $sqlColors);
             $colors = mysqli_fetch_assoc($resultColors);
 
@@ -138,7 +125,6 @@ if (isset($_COOKIE['user'])) {
     <main>
         <div class="container-1">
             <h3>Favorite</h3>
-
             <div class="element element-1">
                 <h3>Air Jordan 1 Mid SE</h3>
                 <hr>
@@ -181,7 +167,6 @@ if (isset($_COOKIE['user'])) {
                 <h4 class="size"><br> Size : <i><?php echo isset($details['shoes_size']) ? 'EU ' . htmlspecialchars($details['shoes_size'], ENT_QUOTES, 'UTF-8') : 'Unknown'; ?></i></h4>
                 <h4 id="fav-color">Favorite color : <i><?php echo $favoriteColorsText; ?></i></h4>
             </div>
-
             <button onclick="window.location.href = 'logout.php'" class="logout">Logout</button>
         </div>
 
@@ -223,33 +208,14 @@ if (isset($_COOKIE['user'])) {
                     <input type="checkbox" id="white" name="colors[]" value="white">
                     <label for="white">White</label>
                 </div>
-
                 <input type="submit" value="Save">
             </form>
         </div>
         <div id="popup-background" style="display: none;"></div>
     </main>
-
     <div class="popup-background" style="display: none;"></div>
 </div>
-
-<script>
-    const popupBackground = document.querySelector('.popup-background');
-
-function openPopup() {
-    document.getElementById('edit-popup').style.display = 'block';
-    popupBackground.style.display = 'block';
-}
-
-function closePopup() {
-    document.getElementById('edit-popup').style.display = 'none';
-    popupBackground.style.display = 'none';
-}
-
-document.getElementById('edit-icon').addEventListener('click', openPopup);
-document.getElementById('popup-background').addEventListener('click', closePopup);
-</script>
-
+<script src="js/account.js"></script>
 <?php
 require "footer.php";
 ?>
