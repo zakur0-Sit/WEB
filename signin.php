@@ -34,12 +34,17 @@
                         echo "<div class='alert'>All fields are required</div>";
                     else if(mysqli_num_rows($result) == 0 || !password_verify($password, $row['password']))
                         echo "<div class='alert'>Invalid email or password</div>";
+                    else if($row['role'] == 'admin')
+                    {
+                        setcookie("admin", $email, time() + (86400 * 10), "/");
+                        header("Location: admin.php");
+                    }
                     else
                     {
                         setcookie("user", $email, time() + (86400 * 10), "/");
                         header("Location: account.php");
-                        exit();
                     }
+                    exit();
                 }
             ?>
 

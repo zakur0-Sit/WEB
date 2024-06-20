@@ -7,7 +7,7 @@
 body
 {
     font-family: 'Inter', sans-serif;
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 
 header {
@@ -16,7 +16,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px; 
+    padding: 10px 20px;
     width: 100%;
     box-sizing: border-box;
     z-index: 1000;
@@ -89,20 +89,20 @@ a {
     }
 
     .nav-links {
-        display: none;  
-        position: absolute;  
-        top: 100%;  
+        display: none;
+        position: absolute;
+        top: 100%;
         left: 0%;
         width: 100%;
         background: #E2BA07;
-        z-index: 1000;  
-        text-align: center; 
-        padding: 15px 0; 
+        z-index: 1000;
+        text-align: center;
+        padding: 15px 0;
     }
 
     .nav-links.open {
-        display: flex;  
-        flex-direction: column; 
+        display: flex;
+        flex-direction: column;
     }
 
     .menu-btn {
@@ -115,14 +115,14 @@ a {
     }
 
     .nav-links li {
-        margin: 15px 0;  
+        margin: 15px 0;
     }
 }
 
 
 @media only screen and (min-width: 851px) {
     .menu-btn {
-        display: none;  
+        display: none;
     }
 }
 
@@ -179,6 +179,142 @@ h3
     margin-top: 10px;
 }
 
+.admin-buttons
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.admin-buttons button
+{
+    background-color: #E2BA07;
+    border-radius: 15px;
+    border: none;
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+    margin: 0 20px 10px 0;
+}
+
+.hide-content
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 600px;
+    background-color: #FFF4BD;
+    border-radius: 20px;
+}
+
+.add-content
+{
+    /*display: none;*/
+}
+
+.hide-content label
+{
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.hide-content textarea
+{
+    resize: none;
+    width: 400px;
+    height: 150px;
+    margin-bottom: 15px;
+    border: solid 1px #FF9900;
+    background-color: #fff;
+    border-radius: 20px;
+    text-align: center;
+    padding: 5px 10px;
+}
+
+.hide-content input
+{
+    height: 40px;
+    width: 400px;
+    margin-bottom: 15px;
+    border: solid 1px #FF9900;
+    background-color: #fff;
+    border-radius: 20px;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.add-content>form, .delete-content>form, .import-content>form, .export-content>form
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.add-form
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+form .first, form .second
+{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.first
+{
+    margin-right: 50px;
+}
+
+#for-add-file, #for-import-file
+{
+    border-radius: 20px;
+    border: solid 1px #FF9900;
+    background-color: #fff;
+    padding: 10px 20px;
+}
+
+#for-add-file:hover, #for-import-file:hover, input[type="submit"]
+{
+    background-color: #FF9900;
+    color: #fff;
+    cursor: pointer;
+}
+
+.hide-content input[type="file"]
+{
+    display: none;
+}
+
+.delete-content
+{
+    display: none;
+}
+
+.delete-content label
+{
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.import-content
+{
+    display: none;
+}
+
+.export-content
+{
+    display: none;
+}
+
+
+
 .container-2
 {
     width: 30%;
@@ -196,12 +332,12 @@ h3
     border-radius: 20px;
 }
 
-.ico-container 
+.ico-container
 {
     margin: 5px 100px 10px 100px;
 }
 
-.ico 
+.ico
 {
     width: 30px;
     margin: 0 20px 0 20px;
@@ -218,7 +354,7 @@ h3
 
 .edit-ico {
     width: 30px;
-    height: 30px; 
+    height: 30px;
     cursor: pointer;
     border-radius: 50%;
     transition: transform 0.3s ease;
@@ -248,7 +384,7 @@ h3
 
 #edit-popup input[type="text"],
 #edit-popup select {
-    width: 100%;
+    width: 80%;
     padding: 8px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -286,11 +422,11 @@ h3
 .color-checkbox {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;  
+    gap: 10px;
 }
 
 .color-checkbox input[type="checkbox"] {
-    margin-bottom: 10px;  
+    margin-bottom: 10px;
 }
 
 .blur {
@@ -317,10 +453,9 @@ h3
     margin-top: 10px;
     border: none;
     border-radius: 10px;
-    cursor: pointer;
 }
 
-footer 
+footer
 {
     display: flex;
     width: 100%;
@@ -332,7 +467,7 @@ footer
 }
 
 @media only screen and (max-width: 1300px) {
-    
+
     .container-1
     {
         width: 80%;
@@ -455,8 +590,8 @@ footer
     {
         margin: 20px 0 20px 0px;
     }
-    
-    .ico 
+
+    .ico
     {
         width: 5vw;
         margin: 0 10px 0 10px;

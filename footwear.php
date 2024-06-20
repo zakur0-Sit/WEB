@@ -109,7 +109,7 @@
 <script src="js/footwear.js"></script>
 <script src="js/menu.js"></script>
 
-<<script>
+<script>
 document.querySelectorAll('.heart').forEach(function(heart) {
     heart.addEventListener('click', function() {
         if (this.src.endsWith('empty_heart.png')) {
