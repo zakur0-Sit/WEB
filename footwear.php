@@ -91,7 +91,7 @@
                     echo '<div class="size-buttons">';
                 
                     echo '</div>';
-                    echo '<img class="like heart" src="img/ico/empty_heart.png" alt="image">';
+                    echo '<img class="like heart" src="img/ico/empty_heart.png" alt="image" style="like:hover ">';
                     echo '</div>';
 
                     echo '<div class="rating-container" style="position: relative; top: -100px; right: 10px; display: flex;" >';

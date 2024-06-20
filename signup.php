@@ -61,11 +61,11 @@
                         $profile_image_path = 'img/account/account-image.jpg';
                         $profile_image = mysqli_real_escape_string($connection, file_get_contents($profile_image_path));
                         $shoes_size=0;
-                        $sql = "INSERT INTO account_details (id, profile_image, shoes_size, id_colors_favorite) VALUES ('$new_user_id', '$profile_image', '$shoes_size', '$id_colors_favorite')";
+                        $sql = "INSERT INTO account_details (id, profile_image, shoes_size ) VALUES ('$new_user_id', '$profile_image', '$shoes_size')";
                         mysqli_query($connection, $sql);
 
                         // Insert into favorite_colors
-                        $sql = "INSERT INTO favorite_colors (red, yellow, blue, black, white, id) VALUES (false, false, false, false, false, '$id_colors_favorite')";
+                        $sql = "INSERT INTO favorite_colors (id, red, yellow, blue, black, white) VALUES ('$new_user_id', false, false, false, false, false)";
                         mysqli_query($connection, $sql);
                         header("Location: signin.php");
                         exit();
