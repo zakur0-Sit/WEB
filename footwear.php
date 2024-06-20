@@ -78,35 +78,35 @@ require "header.php";
             <?php
             foreach ($shoes as $shoe) {
                 echo '<div class="element" >';
-                echo '<img src="data:image/jpeg;base64,' . base64_encode($shoe['image']) . '" alt="image" >';
-                echo '<div class="info">';
-                echo '<div class="info-top">';
-                echo '<div class="detalii">';
-                echo '<p class="info-name"><strong>' . htmlspecialchars($shoe['name_shoes']) . '</strong></p><br>';
-                echo '<p class="info-descript">' . nl2br(htmlspecialchars($shoe['description'])) . '</p><br>';
-                echo '<p class="info-price">' . htmlspecialchars($shoe['price']) . '$</p>';
-                echo '</div>';
+                    echo '<img src="' . htmlspecialchars($shoe['image']) . '" alt="image">';
+                    echo '<div class="info">';
+                        echo '<div class="info-top">';
+                            echo '<div class="detalii">';
+                                echo '<p class="info-name"><strong>' . htmlspecialchars($shoe['name_shoes']) . '</strong></p><br>';
+                                echo '<p class="info-descript">' . nl2br(htmlspecialchars($shoe['description'])) . '</p><br>';
+                                echo '<p class="info-price">' . htmlspecialchars($shoe['price']) . '$</p>';
+                            echo '</div>';
 
-                echo '<div class="rating-container">';
-                echo '<div class="rating">';
-                echo '<p class="score">8.5/10</p>';
-                echo '<img class="star" src="img/ico/star.png" alt="image">';
-                echo '</div>';
-                echo '<button class="rating-button">Rating</button>';
-                echo '</div>';
-                echo '</div>';
+                            echo '<div class="rating-container">';
+                                echo '<div class="rating">';
+                                    echo '<p class="score">8.5/10</p>';
+                                    echo '<img class="star" src="img/ico/star.png" alt="image">';
+                                echo '</div>';
+                                echo '<button class="rating-button">Rating</button>';
+                            echo '</div>';
+                        echo '</div>';
 
-                echo '<div class="info-bottom">';
-                echo '<button type="button" onclick="window.location.href=\'#\'"">Buy now</button>';
-                echo '<div class="buttons-size">';
-                echo '<button class="size-button">EU 33</button>';
-                echo '<button class="size-button">EU 35</button>';
-                echo '<button class="size-button">EU 40</button>';
-                echo '<button class="size-button">EU 45</button>';
-                echo '</div>';
-                echo '<img class="like heart" src="img/ico/empty_heart.png" alt="image">';
-                echo '</div>';
-                echo '</div>';
+                        echo '<div class="info-bottom">';
+                            echo '<button type="button" onclick="window.location.href=\'#\'"">Buy now</button>';
+                            echo '<div class="buttons-size">';
+                                echo '<button class="size-button">EU 33</button>';
+                                echo '<button class="size-button">EU 35</button>';
+                                echo '<button class="size-button">EU 40</button>';
+                                echo '<button class="size-button">EU 45</button>';
+                            echo '</div>';
+                            echo '<img class="like heart" src="img/ico/empty_heart.png" alt="image">';
+                        echo '</div>';
+                    echo '</div>';
                 echo '</div>';
             }
             ?>

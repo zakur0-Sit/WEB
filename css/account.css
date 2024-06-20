@@ -232,7 +232,7 @@ h3
     padding: 5px 10px;
 }
 
-.hide-content input
+.hide-content input[type="text"]
 {
     height: 40px;
     width: 400px;
@@ -255,7 +255,7 @@ h3
 .add-form
 {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     margin-bottom: 50px;
 }
@@ -272,7 +272,7 @@ form .first, form .second
     margin-right: 50px;
 }
 
-#for-add-file, #for-import-file
+#for-add-file, #for-import-file, .category, .brand
 {
     border-radius: 20px;
     border: solid 1px #FF9900;
@@ -280,11 +280,36 @@ form .first, form .second
     padding: 10px 20px;
 }
 
-#for-add-file:hover, #for-import-file:hover, input[type="submit"]
+input[type="submit"]
 {
+    height: 40px;
+    width: 400px;
+    border: none;
+    border-radius: 20px;
     background-color: #FF9900;
     color: #fff;
+}
+
+#for-add-file:hover, #for-import-file:hover, input[type="submit"]:hover
+{
+    background-color: #fff;
+    color: #FF9900;
     cursor: pointer;
+    border: solid 1px #FF9900
+}
+
+.category, .brand
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.category label, .brand label
+{
+    margin-right: 20px;
 }
 
 .hide-content input[type="file"]
@@ -313,8 +338,6 @@ form .first, form .second
     display: none;
 }
 
-
-
 .container-2
 {
     width: 30%;
@@ -323,7 +346,7 @@ form .first, form .second
     justify-content: center;
     align-items: center;
     position: relative;
-    top: -150px;
+
 }
 
 .account-image
@@ -350,6 +373,27 @@ form .first, form .second
 
 .user-info p.name {
     margin-right: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.alert, .success
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 350px;
+    height: 30px;
+    color: #fff;
+    border-radius: 20px;
+    background-color: tomato;
+    margin-top: 8px;
+}
+
+.success
+{
+    background-color: lightgreen;
 }
 
 .edit-ico {
