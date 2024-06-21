@@ -1,11 +1,9 @@
-*
-{
+* {
     margin: 0;
     padding: 0;
 }
 
-body
-{
+body {
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
 }
@@ -69,7 +67,7 @@ a {
     cursor: pointer;
 }
 
-#sign-in:hover{
+#sign-in:hover {
     color: #000;
     font-weight: bold;
     transition: color 0.3s ease;
@@ -126,8 +124,7 @@ a {
     }
 }
 
-main
-{
+main {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -135,18 +132,15 @@ main
     width: 100%;
 }
 
-.container-2
-{
+.container-2 {
     width: 70%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
-.element
-{
+.element {
     width: 95%;
     display: flex;
     flex-direction: row;
@@ -158,25 +152,21 @@ main
     padding: 30px;
 }
 
-.element>img
-{
+.element>img {
     width: 200px;
     border-radius: 20px;
     margin: 25px 0 25px 0;
 }
 
-.info
-{
+.info {
     width: 70%;
 }
 
-.info-price
-{
+.info-price {
     font-weight: 600;
 }
 
-.info button
-{
+.info button {
     width: 100px;
     height: 40px;
     background-color: #E2BA07;
@@ -184,38 +174,33 @@ main
     border-radius: 10px;
 }
 
-.star
-{
+.star {
     width: 25px;
 }
 
-.like
-{
+.like {
     float: right;
     width: 30px;
+    cursor: pointer;
 }
 
-.container-3
-{
+.container-3 {
     margin: 5px 100px 0 100px;
     width: 180px;
     display: grid;
     grid-template-columns: repeat(2,1fr);
 }
 
-.ico-container
-{
+.ico-container {
     margin: 5px 100px 10px 100px;
 }
 
-.ico
-{
+.ico {
     width: 30px;
     margin: 0 20px 0 20px;
 }
 
-footer
-{
+footer {
     display: flex;
     width: 100%;
     height: 200px;
@@ -225,20 +210,18 @@ footer
     align-items: center;
 }
 
-.container-1
-{
+.container-1 {
     width: 20%;
 }
-.side-bar
-{
+
+.side-bar {
     width: 100%;
     height: 100%;
     background-color: #F9F7EC;
     border-radius: 10px;
 }
 
-.side-bar button
-{
+.side-bar button {
     margin: 10px 0 20px 30px;
     padding: 10px 20px 10px 20px;
     width: 120px;
@@ -248,21 +231,18 @@ footer
     color: #fff;
 }
 
-.category>form, .size>form, .price>form
-{
+.category>form, .size>form, .price>form {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
 }
 
-.brand>form
-{
+.brand>form {
     margin: 0 0 20px 50px;
 }
 
-[type="button"]
-{
+[type="button"] {
     background-color: transparent;
     border: solid 2px #000;
     border-radius: 20px;
@@ -271,21 +251,18 @@ footer
     cursor: pointer;
 }
 
-[type="button"]:hover
-{
+[type="button"]:hover {
     background-color: #000;
     color: #fff;
 }
 
-[type="range"]
-{
+[type="range"] {
     -webkit-appearance: none;
     width: 80%;
     border-radius: 20px;
 }
 
-.drop
-{
+.drop {
     display: none;
 }
 
@@ -297,8 +274,7 @@ footer
     position: relative;
 }
 
-.info-top
-{
+.info-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -337,25 +313,22 @@ footer
 }
 
 .rating-button:hover {
-    background-color: #D4A907;
+    background-color: black;
 }
 
-.info-bottom
-{
+.info-bottom {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.info-bottom>button, .rating-button
-{
+.info-bottom>button, .rating-button {
     font-weight: 700;
     font-size: 14px;
     color: #fff;
 }
 
-.buttons-size button
-{
+.buttons-size button {
     width: 60px;
 }
 
@@ -366,20 +339,61 @@ footer
     border-radius: 5px;
     margin-right: 5px;
     padding: 5px 10px;
+}
+
+.popup {
+    display: none;  
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    font-weight: bold;
     cursor: pointer;
 }
 
-.size-button:hover {
-    background-color: #444;
+.rating-options {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
 }
 
-/*.element img:hover*/
-/*{*/
-/*    width: 500px;*/
-/*}*/
-
-.like:hover {
+.rate-button {
+    background-color: #E2BA07;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
     cursor: pointer;
+    color: white;
+    font-size: 16px;
+}
+
+.rate-button:hover {
+    background-color: #FFD700;
 }
 
 @media only screen and (max-width: 1150px)
@@ -401,81 +415,64 @@ footer
 
 }
 
-@media only screen and (max-width: 950px)
-{
-    .drop
-    {
+@media only screen and (max-width: 950px) {
+    .drop {
         display: block;
     }
 
-    .container-2
-    {
+    .container-2 {
         margin: auto;
         width: 90%;
     }
 
-    .element>img
-    {
+    .element>img {
         width: 150px;
     }
 
-    .info
-    {
+    .info {
         width: 60%;
     }
 
-    .info button
-    {
+    .info button {
         width: 80px;
         height: 30px;
     }
 
-
-
-    main
-    {
+    main {
         display: block
     }
 
-    .container-1
-    {
+    .container-1 {
         width: 100%;
         margin-bottom: 50px;
     }
 
-    .dropdown-content
-    {
+    .dropdown-content {
         display: none;
     }
 
 }
 
-@media only screen and (max-width: 600px)
-{
-    .element
-    {
+@media only screen and (max-width: 600px) {
+    .element{
         flex-direction: column;
         padding-bottom: 20px;
     }
 
-    .element>img
-    {
+    .element>img {
         width: 200px;
     }
 
-    .info
-    {
+    .info {
         width: 80%;
     }
 
-    .info button
-    {
+    .info button {
         width: 100px;
         height: 40px;
     }
 
-    .ico
-    {
+    .ico {
         width: 20px;
         margin: 0 10px 0 10px;
     }

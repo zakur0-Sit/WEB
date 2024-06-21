@@ -58,6 +58,7 @@ require "header.php";
                         </form>
                     </div>
                     <br>
+                    <button> Display</button>
                 </div>
             </div>
         </div>
@@ -65,70 +66,109 @@ require "header.php";
             <?php
             require_once "database.php";
 
-            // Interogarea bazei de date pentru a obține toate perechile de încălțăminte
             $sql = "SELECT * FROM shoes ORDER BY id ASC";
             $result = mysqli_query($connection, $sql);
             $shoes = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-            // Convert the result to JSON format to pass to JavaScript
             $shoes_json = json_encode($shoes);
             ?>
 
+                <?php
+                require_once "database.php";
 
-            <?php
-            foreach ($shoes as $shoe) {
-                echo '<div class="element" >';
-                    echo '<img src="' . htmlspecialchars($shoe['image']) . '" alt="image">';
+                foreach ($shoes as $shoe) {
+                    $sqlSizes = "SELECT * FROM shoes_size WHERE id_shoes = " . intval($shoe['id']);
+                    $resultSizes = mysqli_query($connection, $sqlSizes);
+                    $sizes = mysqli_fetch_assoc($resultSizes);
+
+                    $email = mysqli_real_escape_string($connection, $_COOKIE['user']);
+                    $sql = "SELECT id FROM users WHERE email='$email'";
+                    $result = mysqli_query($connection, $sql);
+                    $row = mysqli_fetch_assoc($result);
+                    $userId = $row['id'];
+                    $shoeId = $sizes['id_shoes'];
+
+                    echo '<div class="element">';
+                    echo '<img src="data:image/jpeg;base64,' . base64_encode($shoe['image']) . '" alt="image">';
                     echo '<div class="info">';
-                        echo '<div class="info-top">';
-                            echo '<div class="detalii">';
-                                echo '<p class="info-name"><strong>' . htmlspecialchars($shoe['name_shoes']) . '</strong></p><br>';
-                                echo '<p class="info-descript">' . nl2br(htmlspecialchars($shoe['description'])) . '</p><br>';
-                                echo '<p class="info-price">' . htmlspecialchars($shoe['price']) . '$</p>';
-                            echo '</div>';
-
-                            echo '<div class="rating-container">';
-                                echo '<div class="rating">';
-                                    echo '<p class="score">8.5/10</p>';
-                                    echo '<img class="star" src="img/ico/star.png" alt="image">';
-                                echo '</div>';
-                                echo '<button class="rating-button">Rating</button>';
-                            echo '</div>';
-                        echo '</div>';
-
-                        echo '<div class="info-bottom">';
-                            echo '<button type="button" onclick="window.location.href=\'#\'"">Buy now</button>';
-                            echo '<div class="buttons-size">';
-                                echo '<button class="size-button">EU 33</button>';
-                                echo '<button class="size-button">EU 35</button>';
-                                echo '<button class="size-button">EU 40</button>';
-                                echo '<button class="size-button">EU 45</button>';
-                            echo '</div>';
-                            echo '<img class="like heart" src="img/ico/empty_heart.png" alt="image">';
-                        echo '</div>';
+                    echo '<div class="info-top">';
+                    echo '<div class="detalii">';
+                    echo '<p class="info-name"><strong>' . htmlspecialchars($shoe['name_shoes']) . '</strong></p><br>';
+                    echo '<p class="info-descript">' . nl2br(htmlspecialchars($shoe['description'])) . '</p><br>';
+                    echo '<p class="info-price">' . htmlspecialchars($shoe['price']) . '$</p>';
                     echo '</div>';
-                echo '</div>';
-            }
-            ?>
 
+                    echo '<div class="rating-container">';
+                    echo '<div class="rating">';
 
+                    $sqlRating = "SELECT rating FROM ratings WHERE id_shoes = " . intval($shoeId);
+                    $resultRating = mysqli_query($connection, $sqlRating);
+                    $rating = mysqli_fetch_assoc($resultRating);
+                    $averageRating = $rating['rating'];
+                    echo '<p class="score">' . number_format($averageRating, 1) . '/10</p>';
+                    
+                    echo '<img class="star" src="img/ico/star.png" alt="image">';
+                    echo '</div>';
+
+                    echo '<button class="rating-button" data-shoe-id="' . $shoeId . '" data-user-id="' . $userId . '">Rate</button>';
+                    echo '</div>';
+                    echo '</div>';
+
+                    echo '<div class="info-bottom">';
+                    echo '<button type="button" onclick="window.location.href=\'' . htmlspecialchars($shoe['link']) . '\'">Buy now</button>';
+                    echo '<div class="buttons-size">';
+
+                    for ($size = 33; $size <= 45; $size++) {
+                        if ($sizes['size_' . $size] == 1) {
+                            echo '<button class="size-button">EU ' .$size. '</button>';
+                        }
+                    }
+
+                    echo '</div>';
+
+                    $query = "SELECT love FROM ratings WHERE id_shoes='".$shoeId."' AND id_user='".$userId."'";
+                    
+                    $result = mysqli_query($connection, $query);
+                    $row = mysqli_fetch_assoc($result);
+                    $heartImage = 'empty_heart.png';
+                    if ($row) {
+                        $heartImage = $row['love'] == 1 ? 'full_heart.png' : 'empty_heart.png';
+                    }
+                    echo '<img class="like heart" src="img/ico/' .$heartImage. '" alt="image" data-user-id="' . $userId . '" data-shoe-id="' . $shoeId . '">';
+
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                }
+                ?>
+                
         </div>
     </main>
 </div>
+
+<div id="rating-popup" class="popup">
+    <div class="popup-content">
+        <span class="close-button">&times;</span>
+        <h2>Rate this Product</h2>
+        <div class="rating-options">
+            <?php for ($i = 0; $i <= 10; $i++): ?>
+                <button class="rate-button" data-rating="<?php echo $i; ?>"><?php echo $i; ?></button>
+            <?php endfor; ?>
+        </div>
+        <form id="rating-form" style="display:none;">
+            <input type="hidden" name="shoe_id" id="shoe_id">
+            <input type="hidden" name="user_id" id="user_id">
+            <input type="hidden" name="rating" id="rating">
+        </form>
+    </div>
+</div>
+
+
+
 <script src="js/footwear.js"></script>
 <script src="js/menu.js"></script>
-
-<<script>
-    document.querySelectorAll('.heart').forEach(function(heart) {
-        heart.addEventListener('click', function() {
-            if (this.src.endsWith('empty_heart.png')) {
-                this.src = 'img/ico/full_heart.png';
-            } else {
-                this.src = 'img/ico/empty_heart.png';
-            }
-        });
-    });
-</script>
+<script src="js/like.js"></script>
+<script src="js/rating.js"></script>
 
 <?php
 require "footer.php";
