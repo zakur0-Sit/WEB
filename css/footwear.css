@@ -212,6 +212,7 @@ footer {
 
 .container-1 {
     width: 20%;
+    height: 1400px;
 }
 
 .side-bar {
@@ -238,7 +239,8 @@ footer {
     margin-bottom: 20px;
 }
 
-.brand>form {
+.brand>form, .color-form>form
+{
     margin: 0 0 20px 50px;
 }
 
@@ -256,14 +258,41 @@ footer {
     color: #fff;
 }
 
-[type="range"] {
+[type="range"]
+{
     -webkit-appearance: none;
     width: 80%;
     border-radius: 20px;
 }
 
-.drop {
+.drop
+{
     display: none;
+}
+
+.color-form input[type="checkbox"]
+{
+    display: none;
+}
+
+.color-form img
+{
+    width: 20px;
+    margin-right: 5px;
+}
+
+.color-form label
+{
+    cursor: pointer;
+}
+
+.color
+{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    width: 60px;
 }
 
 .container-2 {
@@ -360,7 +389,7 @@ footer {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: relative;
-    max-width: 500px;
+    max-width: 700px;
     margin: auto;
     text-align: center;
 }

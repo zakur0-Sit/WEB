@@ -24,22 +24,61 @@ require "header.php";
                     <div class="brand">
                         <button>Brand</button>
                         <form>
-                            <input type="checkbox" name="check" id="nike">
+                            <input type="checkbox" name="check_brand" id="nike">
                             <label for="nike">Nike</label><br>
-                            <input type="checkbox" name="check" id="jordan">
+                            <input type="checkbox" name="check_brand" id="jordan">
                             <label for="jordan">Jordan</label><br>
-                            <input type="checkbox" name="check" id="adidas">
+                            <input type="checkbox" name="check_brand" id="adidas">
                             <label for="adidas">Adidas</label><br>
-                            <input type="checkbox" name="check" id="puma">
+                            <input type="checkbox" name="check_brand" id="puma">
                             <label for="puma">Puma</label><br>
-                            <input type="checkbox" name="check" id="reebok">
+                            <input type="checkbox" name="check_brand" id="reebok">
                             <label for="reebok">Reebok</label><br>
+                        </form>
+                    </div>
+
+                    <div class="color-form">
+                        <button>Color</button>
+                        <form>
+                            <div class="color">
+                                <input type="checkbox" name="check_color" id="red">
+                                <img src="img/ico/red-drop.png" alt="ico">
+                                <label for="red">Red</label><br>
+                            </div>
+                            <div class="color">
+                                <input type="checkbox" name="check_color" id="yellow">
+                                <img src="img/ico/yellow-drop.png" alt="ico">
+                                <label for="yellow">Yellow</label><br>
+                            </div>
+                            <div class="color">
+                                <input type="checkbox" name="check_color" id="green">
+                                <img src="img/ico/green-drop.png" alt="ico">
+                                <label for="green">Green</label><br>
+                            </div>
+                            <div class="color">
+                                <input type="checkbox" name="check_color" id="blue">
+                                <img src="img/ico/blue-drop.png" alt="ico">
+                                <label for="blue">Blue</label><br>
+                            </div>
+                            <div class="color">
+                                <input type="checkbox" name="check_color" id="black">
+                                <img src="img/ico/black-drop.png" alt="ico">
+                                <label for="black">Black</label><br>
+                            </div>
+                            <div class="color">
+                                <input type="checkbox" name="check_color" id="white">
+                                <img src="img/ico/white-drop.png" alt="ico">
+                                <label for="white">White</label><br>
+                            </div>
                         </form>
                     </div>
 
                     <div class="size">
                         <button>Size</button>
                         <form>
+                            <input type="button" name="size-33" value="EU 33">
+                            <input type="button" name="size-34" value="EU 34">
+                            <input type="button" name="size-35" value="EU 35">
                             <input type="button" name="size-36" value="EU 36">
                             <input type="button" name="size-37" value="EU 37">
                             <input type="button" name="size-38" value="EU 38">
@@ -48,6 +87,8 @@ require "header.php";
                             <input type="button" name="size-41" value="EU 41">
                             <input type="button" name="size-42" value="EU 42">
                             <input type="button" name="size-43" value="EU 43">
+                            <input type="button" name="size-44" value="EU 44">
+                            <input type="button" name="size-45" value="EU 45">
                         </form>
                     </div>
                     <div class="price">
@@ -64,24 +105,23 @@ require "header.php";
         </div>
         <div class="container-2">
             <?php
-            require_once "database.php";
-
-            $sql = "SELECT * FROM shoes ORDER BY id ASC";
-            $result = mysqli_query($connection, $sql);
-            $shoes = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-            $shoes_json = json_encode($shoes);
-            ?>
-
-                <?php
                 require_once "database.php";
+
+                $sql = "SELECT * FROM shoes ORDER BY id DESC";
+                $result = mysqli_query($connection, $sql);
+                $shoes = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+                $shoes_json = json_encode($shoes);
 
                 foreach ($shoes as $shoe) {
                     $sqlSizes = "SELECT * FROM shoes_size WHERE id_shoes = " . intval($shoe['id']);
                     $resultSizes = mysqli_query($connection, $sqlSizes);
                     $sizes = mysqli_fetch_assoc($resultSizes);
 
-                    $email = mysqli_real_escape_string($connection, $_COOKIE['user']);
+                    if(isset($_COOKIE['user']))
+                        $email = mysqli_real_escape_string($connection, $_COOKIE['user']);
+                    else if(isset($_COOKIE['admin']))
+                        $email = mysqli_real_escape_string($connection, $_COOKIE['admin']);
                     $sql = "SELECT id FROM users WHERE email='$email'";
                     $result = mysqli_query($connection, $sql);
                     $row = mysqli_fetch_assoc($result);
@@ -89,7 +129,7 @@ require "header.php";
                     $shoeId = $sizes['id_shoes'];
 
                     echo '<div class="element">';
-                    echo '<img src="data:image/jpeg;base64,' . base64_encode($shoe['image']) . '" alt="image">';
+                    echo '<img src="' . htmlspecialchars($shoe['image']) . '" alt="image">';
                     echo '<div class="info">';
                     echo '<div class="info-top">';
                     echo '<div class="detalii">';
@@ -101,12 +141,17 @@ require "header.php";
                     echo '<div class="rating-container">';
                     echo '<div class="rating">';
 
-                    $sqlRating = "SELECT rating FROM ratings WHERE id_shoes = " . intval($shoeId);
-                    $resultRating = mysqli_query($connection, $sqlRating);
-                    $rating = mysqli_fetch_assoc($resultRating);
-                    $averageRating = $rating['rating'];
-                    echo '<p class="score">' . number_format($averageRating, 1) . '/10</p>';
-                    
+//                    $sqlRating = "SELECT rating FROM ratings WHERE id_shoes = " . intval($shoeId);
+//                    $resultRating = mysqli_query($connection, $sqlRating);
+//                    $rating = mysqli_fetch_assoc($resultRating);
+//                        if($rating['rating'] === null)
+//                            $averageRating = 0;
+//                        else
+//                            $averageRating = $rating['rating'];
+//                        echo '<p class="score">' . number_format($averageRating, 1) . '/10</p>';
+
+
+                    echo '<p class="score">0/10</p>';
                     echo '<img class="star" src="img/ico/star.png" alt="image">';
                     echo '</div>';
 
@@ -119,29 +164,27 @@ require "header.php";
                     echo '<div class="buttons-size">';
 
                     for ($size = 33; $size <= 45; $size++) {
-                        if ($sizes['size_' . $size] == 1) {
+                        if ($sizes['size_' . $size] == 1)
                             echo '<button class="size-button">EU ' .$size. '</button>';
-                        }
                     }
 
                     echo '</div>';
 
                     $query = "SELECT love FROM ratings WHERE id_shoes='".$shoeId."' AND id_user='".$userId."'";
-                    
+
                     $result = mysqli_query($connection, $query);
                     $row = mysqli_fetch_assoc($result);
                     $heartImage = 'empty_heart.png';
-                    if ($row) {
+                    if ($row)
                         $heartImage = $row['love'] == 1 ? 'full_heart.png' : 'empty_heart.png';
-                    }
+
                     echo '<img class="like heart" src="img/ico/' .$heartImage. '" alt="image" data-user-id="' . $userId . '" data-shoe-id="' . $shoeId . '">';
 
                     echo '</div>';
                     echo '</div>';
                     echo '</div>';
                 }
-                ?>
-                
+            ?>
         </div>
     </main>
 </div>
@@ -151,7 +194,7 @@ require "header.php";
         <span class="close-button">&times;</span>
         <h2>Rate this Product</h2>
         <div class="rating-options">
-            <?php for ($i = 0; $i <= 10; $i++): ?>
+            <?php for ($i = 1; $i <= 10; $i++): ?>
                 <button class="rate-button" data-rating="<?php echo $i; ?>"><?php echo $i; ?></button>
             <?php endfor; ?>
         </div>

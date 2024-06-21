@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     closeButton.addEventListener('click', function() {
-        popup.style.display = 'none';  
+        popup.style.display = 'none';
     });
 
     window.addEventListener('click', function(event) {
