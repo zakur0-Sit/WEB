@@ -123,7 +123,7 @@ if (isset($_COOKIE['user'])) {
 
 <div class="account">
     <main>
-        <div class="container-1">
+        <div class="container-1 user-like">
             <h3>Favorite</h3>
             <div class="element element-1">
                 <h3>Air Jordan 1 Mid SE</h3>
@@ -157,14 +157,14 @@ if (isset($_COOKIE['user'])) {
             </div>
         </div>
 
-        <div class="container-2">
+        <div class="container-2 user">
             <img class="account-image" src="data:image/jpeg;base64,<?php echo base64_encode($details['profile_image']); ?>" alt="profile image"><br>
             <div class="user-info">
                 <p class="name"><?php echo $username; ?></p>
                 <img id="edit-icon" class="edit-ico" src="img/ico/edit.png" alt="Edit Profile">
             </div>
             <div class="other">
-                <h4 class="size"><br> Size : <i><?php echo isset($details['shoes_size']) ? 'EU ' . htmlspecialchars($details['shoes_size'], ENT_QUOTES, 'UTF-8') : 'Unknown'; ?></i></h4>
+                <h4 class="ssize"><br> Size : <i><?php echo isset($details['shoes_size']) ? 'EU ' . htmlspecialchars($details['shoes_size'], ENT_QUOTES, 'UTF-8') : 'Unknown'; ?></i></h4>
                 <h4 id="fav-color">Favorite color : <i><?php echo $favoriteColorsText; ?></i></h4>
             </div>
             <button onclick="window.location.href = 'logout.php'" class="logout">Logout</button>

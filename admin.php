@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     {
 
         $email = $_COOKIE['admin'];
-        $sql = "SELECT id, username FROM users WHERE email='$email'";
+        $sql = "SELECT id, username  FROM users WHERE email='$email'";
         $result = mysqli_query($connection, $sql);
         if (!$result) {
             die("Error: " . mysqli_error($connection));
@@ -285,7 +285,7 @@ if (isset($_COOKIE['admin'])) {
                 </div>
             </div>
 
-            <div class="container-2">
+            <div class="container-2 admin-container">
                 <p><strong>ADMIN</strong></p><br>
                 <img class="account-image" src="data:image/jpeg;base64,<?php echo base64_encode($details['profile_image']); ?>" alt="profile image"><br>
                 <div class="user-info">
@@ -325,6 +325,7 @@ if (isset($_COOKIE['admin'])) {
         <div class="popup-background" style="display: none;"></div>
     </div>
 
+    <script src="js/menu.js"></script>
     <script src="js/account.js"></script>
     <script src="js/admin.js"></script>
 
