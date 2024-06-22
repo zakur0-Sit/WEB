@@ -11,9 +11,21 @@ if (!isset($_COOKIE["admin"])) {
 }
 
 session_start();
+$sql_role = "SELECT role FROM users WHERE email=?";
+$stmt_role = $connection->prepare($sql_role);
+$stmt_role->bind_param("s", $_COOKIE["admin"]);
+$stmt_role->execute();
+$result_role = $stmt_role->get_result();
+$row_role = $result_role->fetch_assoc();
+if ($row_role['role'] != 'admin') {
+    header("Location: signin.php");
+    exit();
+}
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_COOKIE['admin'])) {
+    if (isset($_COOKIE['admin']))
+    {
+
         $email = $_COOKIE['admin'];
         $sql = "SELECT id, username FROM users WHERE email='$email'";
         $result = mysqli_query($connection, $sql);
