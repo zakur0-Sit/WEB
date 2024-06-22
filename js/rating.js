@@ -34,22 +34,13 @@ document.addEventListener('DOMContentLoaded', function() {
             ratingInput.value = rating;
 
             const formData = new FormData(ratingForm);
-            console.log([...formData]); // Log form data for debugging
 
             fetch('rate_product.php', {
                 method: 'POST',
                 body: formData
             })
-            .then(response => response.text()) // Use text() to see raw response
-            .then(text => {
-                console.log('Raw response:', text); // Log the raw response
-                let data;
-                try {
-                    data = JSON.parse(text); // Parse the response as JSON
-                } catch (e) {
-                    console.error('Invalid JSON response:', text);
-                    return;
-                }
+            .then(response => response.json())
+            .then(data => {
                 if (data.success) {
                     const averageRating = data.averageRating;
                     const shoeId = shoeIdInput.value;

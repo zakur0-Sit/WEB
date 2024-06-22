@@ -111,8 +111,6 @@ require "header.php";
                 $result = mysqli_query($connection, $sql);
                 $shoes = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-                $shoes_json = json_encode($shoes);
-
                 foreach ($shoes as $shoe) {
                     $sqlSizes = "SELECT * FROM shoes_size WHERE id_shoes = " . intval($shoe['id']);
                     $resultSizes = mysqli_query($connection, $sqlSizes);
@@ -141,17 +139,19 @@ require "header.php";
                     echo '<div class="rating-container">';
                     echo '<div class="rating">';
 
-//                    $sqlRating = "SELECT rating FROM ratings WHERE id_shoes = " . intval($shoeId);
-//                    $resultRating = mysqli_query($connection, $sqlRating);
-//                    $rating = mysqli_fetch_assoc($resultRating);
-//                        if($rating['rating'] === null)
-//                            $averageRating = 0;
-//                        else
-//                            $averageRating = $rating['rating'];
-//                        echo '<p class="score">' . number_format($averageRating, 1) . '/10</p>';
+                    $sqlRating = "SELECT AVG(rating) as averageRating FROM ratings WHERE id_shoes = " . intval($shoeId);
+                    $resultRating = mysqli_query($connection, $sqlRating);
+                    $ratingData = mysqli_fetch_assoc($resultRating);
+                    
+                    $averageRating = $ratingData['averageRating'];
+                    if ($averageRating !== null) {
+                        $averageRating = (floor($averageRating) == $averageRating) ? number_format($averageRating, 0) : number_format($averageRating, 1);
+                    } else {
+                        $averageRating = 0;
+                    }
+                    
+                    echo '<p class="score">' . $averageRating . '/10</p>';
 
-
-                    echo '<p class="score">0/10</p>';
                     echo '<img class="star" src="img/ico/star.png" alt="image">';
                     echo '</div>';
 
@@ -205,8 +205,6 @@ require "header.php";
         </form>
     </div>
 </div>
-
-
 
 <script src="js/footwear.js"></script>
 <script src="js/menu.js"></script>

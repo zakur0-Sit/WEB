@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 require_once "database.php";
 
 $shoeId = $_POST['shoe_id'];
@@ -20,4 +20,4 @@ if ($rating) {
         die("Error insert rating: " . mysqli_error($connection));
     }
 }
-?>
+?> -->
