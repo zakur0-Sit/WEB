@@ -48,7 +48,7 @@
             exit();
         }
 
-        $stmt = $connection->prepare("INSERT INTO shoes (name_shoes, category, brand, price, description, image, link, rating) VALUES (?, ?, ?, ?, ?, ?, ?, 0)");
+        $stmt = $connection->prepare("INSERT INTO shoes (name_shoes, category, brand, price, description, image, link) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("sssssss", $name, $category, $brand, $price, $description, $imagePath, $link);
 
         if ($stmt->execute()) {

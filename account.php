@@ -181,6 +181,9 @@ if (isset($_COOKIE['user'])) {
                 <label for="shoe-size">Shoe size:</label>
                 <select id="shoe-size" name="shoe-size">
                     <option value="">Select size</option>
+                    <option value="36">EU 33</option>
+                    <option value="37">EU 34</option>
+                    <option value="38">EU 35</option>
                     <option value="36">EU 36</option>
                     <option value="37">EU 37</option>
                     <option value="38">EU 38</option>
@@ -189,6 +192,8 @@ if (isset($_COOKIE['user'])) {
                     <option value="41">EU 41</option>
                     <option value="42">EU 42</option>
                     <option value="43">EU 43</option>
+                    <option value="36">EU 44</option>
+                    <option value="37">EU 45</option>
                 </select>
 
                 <label>Favorite colors:</label>

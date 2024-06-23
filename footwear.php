@@ -11,19 +11,16 @@ require "header.php";
                 <div id="dropdown-content" class="dropdown-content">
                     <form class="filter" action="footwear.php" method="post">
                         <style>
-                            .checked
-                            {
+                            .checked {
                                 background-color: #FF9900;
                             }
 
-                            .unchecked
-                            {
+                            .unchecked {
                                 background-color: transparent;
                                 border: none;
                             }
 
-                            .checked-color
-                            {
+                            .checked-color {
                                 border: solid 2px #FF9900;
                                 border-radius: 20px;
                             }
@@ -220,12 +217,19 @@ require "header.php";
                     $email = mysqli_real_escape_string($connection, $_COOKIE['user']);
                 } else if (isset($_COOKIE['admin'])) {
                     $email = mysqli_real_escape_string($connection, $_COOKIE['admin']);
+                } else {
+                    $email = null;
                 }
 
-                $sql = "SELECT id FROM users WHERE email='$email'";
-                $result = mysqli_query($connection, $sql);
-                $row = mysqli_fetch_assoc($result);
-                $userId = $row['id'];
+                if ($email) {
+                    $sql = "SELECT id FROM users WHERE email='$email'";
+                    $result = mysqli_query($connection, $sql);
+                    $row = mysqli_fetch_assoc($result);
+                    $userId = $row['id'];
+                } else {
+                    $userId = null;
+                }
+
                 $shoeId = $sizes['id_shoes'];
 
                 echo '<div class="element">';
@@ -273,15 +277,18 @@ require "header.php";
 
                 echo '</div>';
 
-                $query = "SELECT love FROM ratings WHERE id_shoes='" . $shoeId . "' AND id_user='" . $userId . "'";
-                $result = mysqli_query($connection, $query);
-                $row = mysqli_fetch_assoc($result);
-                $heartImage = 'empty_heart.png';
-                if ($row) {
-                    $heartImage = $row['love'] == 1 ? 'full_heart.png' : 'empty_heart.png';
+                if ($userId !== null) {
+                    $query = "SELECT love FROM ratings WHERE id_shoes='" . $shoeId . "' AND id_user='" . $userId . "'";
+                    $result = mysqli_query($connection, $query);
+                    $row = mysqli_fetch_assoc($result);
+                    $heartImage = 'empty_heart.png';
+                    if ($row) {
+                        $heartImage = $row['love'] == 1 ? 'full_heart.png' : 'empty_heart.png';
+                    }
+
+                    echo '<img class="like heart" src="img/ico/' . $heartImage . '" alt="image" data-user-id="' . $userId . '" data-shoe-id="' . $shoeId . '">';
                 }
 
-                echo '<img class="like heart" src="img/ico/' . $heartImage . '" alt="image" data-user-id="' . $userId . '" data-shoe-id="' . $shoeId . '">';
                 echo '</div>';
                 echo '</div>';
                 echo '</div>';
@@ -291,27 +298,27 @@ require "header.php";
     </main>
 </div>
 
-    <div id="rating-popup" class="popup">
-        <div class="popup-content">
-            <span class="close-button">&times;</span>
-            <h2>Rate this Product</h2>
-            <div class="rating-options">
-                <?php for ($i = 1; $i <= 10; $i++): ?>
-                    <button class="rate-button" data-rating="<?php echo $i; ?>"><?php echo $i; ?></button>
-                <?php endfor; ?>
-            </div>
-            <form id="rating-form" style="display:none;">
-                <input type="hidden" name="shoe_id" id="shoe_id">
-                <input type="hidden" name="user_id" id="user_id">
-                <input type="hidden" name="rating" id="rating">
-            </form>
+<div id="rating-popup" class="popup">
+    <div class="popup-content">
+        <span class="close-button">&times;</span>
+        <h2>Rate this Product</h2>
+        <div class="rating-options">
+            <?php for ($i = 1; $i <= 10; $i++): ?>
+                <button class="rate-button" data-rating="<?php echo $i; ?>"><?php echo $i; ?></button>
+            <?php endfor; ?>
         </div>
+        <form id="rating-form" style="display:none;">
+            <input type="hidden" name="shoe_id" id="shoe_id">
+            <input type="hidden" name="user_id" id="user_id">
+            <input type="hidden" name="rating" id="rating">
+        </form>
     </div>
+</div>
 
-    <script src="js/footwear.js"></script>
-    <script src="js/menu.js"></script>
-    <script src="js/like.js"></script>
-    <script src="js/rating.js"></script>
+<script src="js/footwear.js"></script>
+<script src="js/menu.js"></script>
+<script src="js/like.js"></script>
+<script src="js/rating.js"></script>
 
 <?php
 require "footer.php";
