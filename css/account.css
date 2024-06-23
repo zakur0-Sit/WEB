@@ -139,7 +139,7 @@ main
 .container-1
 {
     width: 70%;
-    margin: 100px 0 100px 30px;
+    margin: 50px 0 50px 30px;
 }
 
 .element
@@ -194,7 +194,7 @@ h3
     width: 100px;
     height: 40px;
     cursor: pointer;
-    margin: 0 20px 10px 0;
+    margin: 0 20px 20px 0;
 }
 
 .hide-content
@@ -203,9 +203,10 @@ h3
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 600px;
+    height: auto;
     background-color: #FFF4BD;
     border-radius: 20px;
+    padding: 20px;
 }
 
 .add-content
@@ -236,12 +237,12 @@ h3
 {
     height: 40px;
     width: 400px;
-    margin-bottom: 15px;
+    margin: 0 10px 15px 10px;
     border: solid 1px #FF9900;
     background-color: #fff;
     border-radius: 20px;
     text-align: center;
-    padding: 0 10px;
+    /*padding: 0 10px;*/
 }
 
 .add-content>form, .delete-content>form, .import-content>form, .export-content>form
@@ -272,7 +273,7 @@ form .first, form .second
     margin-right: 50px;
 }
 
-#for-add-file, #for-import-file, .category, .brand
+#for-add-file, #for-import-file, .category, .brand, .size, .color
 {
     border-radius: 20px;
     border: solid 1px #FF9900;
@@ -298,13 +299,24 @@ input[type="submit"]
     border: solid 1px #FF9900
 }
 
-.category, .brand
+.category, .brand, .sizes, .colors
 {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
     flex-wrap: wrap;
+}
+
+.sizes
+{
+    width: 500px;
+}
+
+.size, .color
+{
+    margin: 0 10px 10px 0;
+    padding: 5px 10px;
 }
 
 .category label, .brand label
@@ -345,8 +357,6 @@ input[type="submit"]
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative;
-
 }
 
 .account-image
@@ -383,7 +393,7 @@ input[type="submit"]
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 350px;
+    width: 400px;
     height: 30px;
     color: #fff;
     border-radius: 20px;
@@ -510,8 +520,37 @@ footer
     align-items: center;
 }
 
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1400px)
+{
+    .hide-content
+    {
+        width: auto;
+        margin-right: 20px;
+    }
 
+    .add-form
+    {
+        flex-direction: column;
+    }
+
+    main
+    {
+        margin: 200px 0 100px 0;
+    }
+
+    .first
+    {
+        margin: 0;
+    }
+}
+
+
+@media only screen and (max-width: 1300px)
+{
+    .admin-container
+    {
+        margin-right: 20px;
+    }
     .container-1
     {
         width: 80%;
@@ -529,21 +568,34 @@ footer
         width: 250px;
     }
 
-    .container-2
+    .user
     {
         top: -200px;
     }
 
-    .account-image
+    user .account-image
     {
         width: 200px;
+    }
+
+    .delete-form, .export-buttons
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .export-buttons input[type="submit"]
+    {
+        margin: 10px;
     }
 
 }
 
 @media only screen and (max-width: 1040px)
 {
-    .container-1
+    .user-like
     {
         width: 90%;
         top: -100px;
@@ -559,50 +611,73 @@ footer
         width: 200px;
     }
 
-    .container-2
+    .user
     {
         top: -250px;
     }
 
-    .account-image
+    user .account-image
     {
         width: 150px;
     }
 
-    .other
+    user .other
     {
         font-size: 12px;
+    }
+
+    main
+    {
+        flex-direction: column;
+        margin-bottom: 800px;
     }
 }
 
 @media only screen and (max-width: 850px)
 {
-    .container-2
-    {
-        display: none;
-    }
-
-    .container-1
+    .user-like
     {
         margin-left: 0;
     }
+
+    .import-buttons
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
 }
 
-@media only screen and (max-width: 650px)
+@media only screen and (max-width: 700px)
 {
     .info-model>p
     {
         font-size: 14px;
     }
 
-    .model img
+    user .model img
     {
         width: 150px;
+    }
+
+    .hide-content input[type="text"], .hide-content input[type="submit"], .category, .brand, .sizes, .colors
+    {
+        max-width: 300px;
+    }
+
+    main
+    {
+        margin-bottom: 1000px;
     }
 }
 
 @media only screen and (max-width: 590px)
 {
+    .add-content textarea
+    {
+        width: 300px;
+    }
     .model
     {
         flex-direction: column;
@@ -615,7 +690,7 @@ footer
         width: 400px;
     }
 
-    .container-1
+    .user-like
     {
         margin-top: 250px;
         position: initial;
@@ -657,5 +732,20 @@ footer
     .info-model
     {
         width: 250px;
+    }
+
+    .hide-content input[type="text"], .hide-content input[type="submit"], .category, .brand, .sizes, .colors, .add-content textarea
+    {
+        max-width: 200px;
+    }
+
+    .account-image
+    {
+        width: 200px;
+    }
+
+    .import-content
+    {
+        text-align: center;
     }
 }
