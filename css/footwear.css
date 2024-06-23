@@ -212,7 +212,7 @@ footer {
 
 .container-1 {
     width: 20%;
-    height: 1400px;
+    height: 1800px;
 }
 
 .side-bar {
@@ -220,23 +220,52 @@ footer {
     height: 100%;
     background-color: #F9F7EC;
     border-radius: 10px;
+    padding-top: 20px;
 }
 
-.side-bar button {
-    margin: 10px 0 20px 30px;
+.side-bar p
+{
+    display: block;
+    margin: 10px 0 20px 0;
     padding: 10px 20px 10px 20px;
     width: 120px;
     background-color: #000;
     border: none;
     border-radius: 20px;
     color: #fff;
+    text-align: center;
+    cursor: pointer;
 }
 
-.category>form, .size>form, .price>form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
+.side-bar button, .side-bar input[type="button"]
+{
+    display: block;
+    margin: 10px auto 20px auto;
+    padding: 10px 20px 10px 20px;
+    width: 120px;
+    background-color: #FF9900;
+    border: none;
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.categories input[type="checkbox"], .brands input[type="checkbox"], .sizes input[type="checkbox"]
+{
+    display: none;
+}
+
+.categories label, .brands label, .sizes label
+{
+    text-align: center;
+    display: block;
+    width: 100px;
+    border: solid 2px #000;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin: 5px 0;
+    cursor: pointer;
 }
 
 .brand>form, .color-form>form
@@ -249,7 +278,7 @@ footer {
     border: solid 2px #000;
     border-radius: 20px;
     width: 80%;
-    height: 30px;
+    /*height: 30px;*/
     cursor: pointer;
 }
 
@@ -424,6 +453,20 @@ footer {
 .rate-button:hover {
     background-color: #FFD700;
 }
+
+.filter, .category, .brand, .color-form, .size, .price
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.category, .brand, .color-form, .size, .price
+{
+    width: 80%;
+}
+
 
 @media only screen and (max-width: 1150px)
 {
