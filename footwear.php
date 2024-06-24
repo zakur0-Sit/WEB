@@ -232,7 +232,8 @@ require "header.php";
 
                 $shoeId = $sizes['id_shoes'];
 
-                echo '<div class="element">';
+                echo '<div class="element" style="position: relative;">';
+                echo '<img src="img/ico/info.png" alt="image" class="info-icon">';
                 echo '<img src="' . htmlspecialchars($shoe['image']) . '" alt="image">';
                 echo '<div class="info">';
                 echo '<div class="info-top">';
@@ -257,10 +258,20 @@ require "header.php";
                 }
 
                 echo '<p class="score">' . $averageRating . '/10</p>';
-
                 echo '<img class="star" src="img/ico/star.png" alt="image">';
+                if (isset($_COOKIE['admin'])) {
+                    $userEmail = mysqli_real_escape_string($connection, $_COOKIE['admin']);
+                    $sql = "SELECT role FROM users WHERE email = '$userEmail'";
+                    $result = mysqli_query($connection, $sql);
+                    if ($result && mysqli_num_rows($result) > 0) {
+                        $user = mysqli_fetch_assoc($result);
+                        if ($user['role'] === 'admin') {
+                            echo '<img src="img/ico/garbage.png" alt="image" class="garbage-icon" onclick="deleteShoe(' . $shoeId . ')">';
+                        }
+                    }
+                } 
+                
                 echo '</div>';
-
                 echo '<button class="rating-button" data-shoe-id="' . $shoeId . '" data-user-id="' . $userId . '">Rate</button>';
                 echo '</div>';
                 echo '</div>';
@@ -315,10 +326,21 @@ require "header.php";
     </div>
 </div>
 
+<form id="delete-form" method="post" action="delete_shoe.php" style="display: none;">
+    <input type="hidden" name="shoe_id" id="delete-shoe-id">
+</form>
+
 <script src="js/footwear.js"></script>
 <script src="js/menu.js"></script>
 <script src="js/like.js"></script>
 <script src="js/rating.js"></script>
+
+<script>
+function deleteShoe(shoeId) {
+    document.getElementById('delete-shoe-id').value = shoeId;
+    document.getElementById('delete-form').submit();
+}
+</script>
 
 <?php
 require "footer.php";

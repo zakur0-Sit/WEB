@@ -166,14 +166,6 @@ main {
     font-weight: 600;
 }
 
-.info button {
-    width: 100px;
-    height: 40px;
-    background-color: #E2BA07;
-    border: none;
-    border-radius: 10px;
-}
-
 .star {
     width: 25px;
 }
@@ -279,16 +271,17 @@ footer {
 }
 
 [type="button"] {
-    background-color: transparent;
-    border: solid 2px #000;
+    background-color: #E2BA07;
+    border: solid 2px #E2BA07;
     border-radius: 20px;
-    width: 80%;
-    /*height: 30px;*/
+    width: 100px;
+    height: 30px;
     cursor: pointer;
 }
 
 [type="button"]:hover {
     background-color: #000;
+    border: solid 2px #000;
     color: #fff;
 }
 
@@ -369,6 +362,28 @@ footer {
 .score {
     margin-right: 10px;
     font-weight: bold;
+}
+
+.garbage-icon {
+    float: right;
+    width: 40px;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: -40px;
+    right: -45px;
+}
+
+.info-icon {
+    float: left;
+    width: 10px;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: -40px;
+    right: 45px;
 }
 
 .rating-button {
