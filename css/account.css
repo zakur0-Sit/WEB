@@ -129,7 +129,6 @@ a {
 main
 {
     margin-top: 80px;
-    height: 1000px;
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -138,22 +137,9 @@ main
 
 .container-1
 {
-    width: 70%;
-    margin: 50px 0 50px 30px;
+    margin: 50px 30px;
 }
 
-.element
-{
-    border-radius: 10px;
-    background-color: #F6F3E4;;
-}
-
-.element img
-{
-    width: 300px;
-    margin: 20px 0 20px 20px;
-    border-radius: 15px;
-}
 h3
 {
     padding: 10px 0 10px 10px;
@@ -209,11 +195,6 @@ h3
     padding: 20px;
 }
 
-.add-content
-{
-    /*display: none;*/
-}
-
 .hide-content label
 {
     margin-bottom: 5px;
@@ -242,7 +223,6 @@ h3
     background-color: #fff;
     border-radius: 20px;
     text-align: center;
-    /*padding: 0 10px;*/
 }
 
 .add-content>form, .delete-content>form, .import-content>form, .export-content>form
@@ -352,7 +332,7 @@ input[type="submit"]
 
 .container-2
 {
-    width: 30%;
+    width: 20%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -465,12 +445,12 @@ input[type="submit"]
 .color-checkbox {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px; /* Spațiu între opțiuni */
+    gap: 10px;
     margin-bottom: 10px;
 }
 
 .color-checkbox input[type="checkbox"] {
-    margin-right: 5px; /* Spațiu între checkbox și etichetă */
+    margin-right: 5px;
 }
 
 .color-checkbox {
@@ -520,6 +500,247 @@ footer
     align-items: center;
 }
 
+/*Comune cu footwear*/
+
+.container-1 {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.element {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #F9F7EC;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+    padding: 30px;
+}
+
+.element .product-img {
+    width: 200px;
+    border-radius: 20px;
+    margin: 25px 0 25px 0;
+}
+
+.info {
+    width: 77%;
+    margin-left: 20px;
+}
+
+.info-price {
+    font-weight: 600;
+}
+
+.info button {
+    width: 100px;
+    height: 40px;
+    background-color: #E2BA07;
+    border: none;
+    border-radius: 10px;
+}
+
+.star
+{
+    width: 25px;
+}
+
+.like {
+    float: right;
+    width: 30px;
+    cursor: pointer;
+}
+
+/*.container-2 {*/
+/*    position: relative;*/
+/*}*/
+
+.element {
+    position: relative;
+}
+
+
+.info-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.rating-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+    position: relative;
+    bottom: 30px;
+}
+
+.rating
+{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.score {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.rating-button {
+    padding: 5px 10px;
+    background-color: #E2BA07;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+.rating-button:hover {
+    background-color: black;
+}
+
+.info-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-bottom>button, .rating-button {
+    font-weight: 700;
+    font-size: 14px;
+    color: #fff;
+}
+
+.buttons-size
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.buttons-size button {
+    width: 60px;
+    margin: 5px;
+}
+
+.size-button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-right: 5px;
+    padding: 5px 10px;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    max-width: 700px;
+    margin: auto;
+    text-align: center;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.rating-options {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.rate-button {
+    background-color: #E2BA07;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+}
+
+@media only screen and (max-width: 1150px)
+{
+    .info-descript
+    {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 950px)
+{
+    .container-1 {
+        margin: auto;
+        width: 90%;
+    }
+
+    .element .product-img {
+        width: 150px;
+    }
+
+    .info button {
+        width: 80px;
+        height: 30px;
+    }
+}
+
+@media only screen and (max-width: 850px)
+{
+    .detalii {
+        margin-right: 10px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .element {
+        flex-direction: column;
+        padding-bottom: 20px;
+    }
+
+    .element .product-img {
+        width: 200px;
+    }
+
+    .info {
+        width: 80%;
+    }
+}
+
+/* Pana aici */
+
 @media only screen and (max-width: 1400px)
 {
     .hide-content
@@ -551,21 +772,15 @@ footer
     {
         margin-right: 20px;
     }
+
     .container-1
     {
-        width: 80%;
-        position: relative;
-        top: -20px;
+        width: 60%;
     }
 
     .info-model
     {
         width: 400px;
-    }
-
-    .element img
-    {
-        width: 250px;
     }
 
     .user
@@ -595,20 +810,20 @@ footer
 
 @media only screen and (max-width: 1040px)
 {
-    .user-like
+    .container-1
     {
         width: 90%;
-        top: -100px;
+    }
+
+    .container-2
+    {
+        width: 80%;
+        margin-top: 50px;
     }
 
     .info-model
     {
         width: 300px;
-    }
-
-    .element img
-    {
-        width: 200px;
     }
 
     .user
@@ -629,15 +844,14 @@ footer
     main
     {
         flex-direction: column;
-        margin-bottom: 800px;
     }
 }
 
 @media only screen and (max-width: 850px)
 {
-    .user-like
+    .container-1
     {
-        margin-left: 0;
+        margin: 0 10px;
     }
 
     .import-buttons
@@ -665,11 +879,6 @@ footer
     {
         max-width: 300px;
     }
-
-    main
-    {
-        margin-bottom: 1000px;
-    }
 }
 
 @media only screen and (max-width: 590px)
@@ -680,21 +889,6 @@ footer
     }
     .model
     {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .element
-    {
-        width: 400px;
-    }
-
-    .user-like
-    {
-        margin-top: 250px;
-        position: initial;
-        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -724,11 +918,6 @@ footer
 
 @media only screen and (max-width: 450px)
 {
-    .element
-    {
-        width: 300px;
-    }
-
     .info-model
     {
         width: 250px;

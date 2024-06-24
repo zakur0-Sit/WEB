@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
             }
 
-            $colors = ['red' => 0, 'yellow' => 0, 'blue' => 0, 'black' => 0, 'white' => 0];
+            $colors = ['red' => 0, 'yellow' => 0, 'green' => 0, 'blue' => 0, 'black' => 0, 'white' => 0];
             if (!empty($_POST['colors'])) {
                 foreach ($_POST['colors'] as $color) {
                     if (array_key_exists($color, $colors)) {
@@ -98,7 +98,7 @@ if (isset($_COOKIE['user'])) {
         $details = mysqli_fetch_assoc($resultDetails);
 
         if ($details) {
-            $sqlColors = "SELECT red, yellow, blue, black, white FROM favorite_colors WHERE id='$id_user'";
+            $sqlColors = "SELECT red, yellow, green, blue, black, white FROM favorite_colors WHERE id='$id_user'";
             $resultColors = mysqli_query($connection, $sqlColors);
             $colors = mysqli_fetch_assoc($resultColors);
 
@@ -106,6 +106,7 @@ if (isset($_COOKIE['user'])) {
             if ($colors) {
                 if ($colors['red']) $favoriteColors[] = 'Red';
                 if ($colors['yellow']) $favoriteColors[] = 'Yellow';
+                if ($colors['green']) $favoriteColors[] = 'Green';
                 if ($colors['blue']) $favoriteColors[] = 'Blue';
                 if ($colors['black']) $favoriteColors[] = 'Black';
                 if ($colors['white']) $favoriteColors[] = 'White';
@@ -123,38 +124,94 @@ if (isset($_COOKIE['user'])) {
 
 <div class="account">
     <main>
-        <div class="container-1 user-like">
+        <div class="container-1">
             <h3>Favorite</h3>
-            <div class="element element-1">
-                <h3>Air Jordan 1 Mid SE</h3>
-                <hr>
-                <div class="model">
-                    <img src="img/account/3.png" alt="img footwear">
-                    <div class="info-model">
-                        <p>Play like '85. The Air Jordan 1 Mid SE brings fresh details and premium comfort to 
-                            an iconic shoe. Its encapsulated Air-Sole unit cushions your foot, while the padded 
-                            collar gives you a supportive feel on the move.</p><br>
-                        <p class="price">200$</p>
-                        <button>Buy now</button>
-                    </div>   
-                </div>
-            </div>
-            <br>
-            <div class="element element-2">
-                <h3>Nike Free Metcon 3</h3>
-                <hr>
-                <div class="model">
-                    <img src="img/account/2.png" alt="img footwear">
-                    <div class="info-model">
-                        <br>
-                        <p class="suplimentar">The Nike Free Metcon 3 combines the flexibility of a Nike Free 
-                            sole with the flat, wide heel of the Metcon to keep you fast but stable on your feet 
-                            from weightlifting to speed drills.</p><br>
-                        <p class="price">150$</p>
-                        <button>Buy now</button>
-                    </div>
-                </div>
-            </div>
+            <?php
+                $email = mysqli_real_escape_string($connection, $email);
+
+                $sql = "SELECT id FROM users WHERE email='$email'";
+                $result = mysqli_query($connection, $sql);
+                $row = mysqli_fetch_assoc($result);
+                $id_user = $row['id'];
+
+                // Obține toate încălțămintea și verifică dacă este în favorite
+                $sql = "SELECT s.*, r.love FROM shoes s LEFT JOIN ratings r ON s.id = r.id_shoes AND r.id_user = '$id_user' LEFT JOIN shoes_size ss ON s.id = ss.id_shoes";
+                $result = mysqli_query($connection, $sql);
+                $shoes = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+                // Filtrăm doar produsele care sunt în favorite
+                $favorite_shoes = array_filter($shoes, function($shoe) {
+                    return isset($shoe['love']) && $shoe['love'] == 1;
+                });
+
+                foreach ($favorite_shoes as $shoe) {
+                    $sqlSizes = "SELECT * FROM shoes_size WHERE id_shoes = " . intval($shoe['id']);
+                    $resultSizes = mysqli_query($connection, $sqlSizes);
+                    $sizes = mysqli_fetch_assoc($resultSizes);
+
+                    echo '<div class="element" style="position: relative;">';
+                    echo '<div class="admin-product">';
+                    echo '<img src="' . htmlspecialchars($shoe['image']) . '" alt="image" class="product-img">';
+                    echo '</div>';
+                    echo '<div class="info">';
+                    echo '<div class="info-top">';
+                    echo '<div class="detalii">';
+                    echo '<p class="info-name"><h3>' . htmlspecialchars($shoe['name_shoes']) . '</h3></p><br>';
+                    echo '<p class="info-descript">' . nl2br(htmlspecialchars($shoe['description'])) . '</p><br>';
+                    echo '<p class="info-price">' . htmlspecialchars($shoe['price']) . '€</p>';
+                    echo '</div>';
+
+                    echo '<div class="rating-container">';
+                    echo '<div class="rating">';
+
+                    $sqlRating = "SELECT AVG(rating) as averageRating FROM ratings WHERE id_shoes = " . intval($shoe['id']);
+                    $resultRating = mysqli_query($connection, $sqlRating);
+                    $ratingData = mysqli_fetch_assoc($resultRating);
+
+                    $averageRating = $ratingData['averageRating'];
+                    if ($averageRating !== null) {
+                        $averageRating = (floor($averageRating) == $averageRating) ? number_format($averageRating, 0) : number_format($averageRating, 1);
+                    } else {
+                        $averageRating = 0;
+                    }
+
+                    echo '<p class="score">' . $averageRating . '/10</p>';
+                    echo '<img class="star" src="img/ico/star.png" alt="image">';
+
+                    echo '</div>';
+                    echo '<button class="rating-button" data-shoe-id="' . $shoe['id'] . '" data-user-id="' . $id_user . '">Rate</button>';
+                    echo '</div>';
+                    echo '</div>';
+
+                    echo '<div class="info-bottom">';
+                    echo '<button type="button" onclick="window.location.href=\'' . htmlspecialchars($shoe['link']) . '\'">Buy now</button>';
+
+                    if ($id_user !== null) {
+                        $query = "SELECT love FROM ratings WHERE id_shoes='" . $shoe['id'] . "' AND id_user='" . $id_user . "'";
+                        $result = mysqli_query($connection, $query);
+                        $row = mysqli_fetch_assoc($result);
+                        $heartImage = 'empty_heart.png';
+                        if ($row) {
+                            $heartImage = $row['love'] == 1 ? 'full_heart.png' : 'empty_heart.png';
+                        }
+
+                        echo '<img class="like heart" src="img/ico/' . $heartImage . '" alt="image" data-user-id="' . $id_user . '" data-shoe-id="' . $shoe['id'] . '">';
+                    }
+
+                    echo '</div>';
+                    echo '<div class="buttons-size">';
+
+                    for ($size = 33; $size <= 45; $size++) {
+                        if ($sizes['size_' . $size] == 1) {
+                            echo '<button class="size-button">EU ' . $size . '</button>';
+                        }
+                    }
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                }
+            ?>
+
         </div>
 
         <div class="container-2 user">
@@ -204,6 +261,9 @@ if (isset($_COOKIE['user'])) {
                     <input type="checkbox" id="yellow" name="colors[]" value="yellow">
                     <label for="yellow">Yellow</label>
 
+                    <input type="checkbox" id="green" name="colors[]" value="green">
+                    <label for="green">Green</label>
+
                     <input type="checkbox" id="blue" name="colors[]" value="blue">
                     <label for="blue">Blue</label>
 
@@ -220,8 +280,29 @@ if (isset($_COOKIE['user'])) {
     </main>
     <div class="popup-background" style="display: none;"></div>
 </div>
+
+    <div id="rating-popup" class="popup">
+        <div class="popup-content">
+            <span class="close-button">&times;</span>
+            <h2>Rate this Product</h2>
+            <div class="rating-options">
+                <?php for ($i = 1; $i <= 10; $i++): ?>
+                    <button class="rate-button" data-rating="<?php echo $i; ?>"><?php echo $i; ?></button>
+                <?php endfor; ?>
+            </div>
+            <form id="rating-form" style="display:none;">
+                <input type="hidden" name="shoe_id" id="shoe_id">
+                <input type="hidden" name="user_id" id="user_id">
+                <input type="hidden" name="rating" id="rating">
+            </form>
+        </div>
+    </div>
+
 <script src="js/account.js"></script>
 <script src="js/menu.js"></script>
+<script src="js/like.js"></script>
+<script src="js/rating.js"></script>
+
 <?php
 require "footer.php";
 ?>
