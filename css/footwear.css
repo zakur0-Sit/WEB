@@ -110,6 +110,88 @@ main {
     height: 100%;
 }
 
+#popup-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    display: none;
+    z-index: 2000; 
+}
+
+#edit-product-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 2001;
+    display: none;
+}
+
+#edit-product-popup label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#shoe-sizes label, #shoe-sizes input {
+    display: inline-block;
+    margin-right: 10px;  
+}
+
+input[type="submit"] {
+    height: 40px;
+    width: 400px;
+    border: none;
+    border-radius: 20px;
+    background-color: #FF9900;
+    color: #fff;
+}
+
+#edit-product-popup input[type="text"],
+#edit-product-popup select {
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#edit-product-popup input[type="file"] {
+    margin-bottom: 10px;
+}
+
+#edit-product-popup input[type="submit"] {
+    background-color: #E2BA07;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#edit-product-popup input[type="submit"]:hover {
+    background-color: #FFD700;
+}
+
+.color-checkbox {
+    display: flex;  
+    flex-wrap: wrap;  
+    gap: 10px;  
+}
+
+.color-checkbox input[type="checkbox"],
+.color-checkbox label {
+    display: inline-block;  
+    margin-right: 5px; 
+}
+
 .admin-ico
 {
     display: flex;

@@ -237,14 +237,14 @@ require "header.php";
                 echo '<img src="' . htmlspecialchars($shoe['image']) . '" alt="image" class="product-img">';
                 echo '<div class="admin-ico">';
                 if (isset($_COOKIE['admin'])) {
-                    echo '<img src="img/ico/info.png" alt="image" class="info-icon">';
+                    echo '<img class="info-icon" src="img/ico/info.png" alt="Edit" data-product-id="' . $shoeId . '" data-product-name="' . htmlspecialchars($shoe['name_shoes']) . '" data-product-description="' . htmlspecialchars($shoe['description']) . '" data-product-price="' . htmlspecialchars($shoe['price']) . '" data-product-sizes=\'' . json_encode(array_keys(array_filter($sizes))) . '\'>';
                     $userEmail = mysqli_real_escape_string($connection, $_COOKIE['admin']);
                     $sql = "SELECT role FROM users WHERE email = '$userEmail'";
                     $result = mysqli_query($connection, $sql);
                     if ($result && mysqli_num_rows($result) > 0) {
                         $user = mysqli_fetch_assoc($result);
                         if ($user['role'] === 'admin') {
-                            echo '<img src="img/ico/trash.png" alt="image" class="garbage-icon" onclick="deleteShoe(' . $shoeId . ')">';
+                            echo '<img src="img/ico/garbage.png" alt="image" class="garbage-icon" onclick="deleteShoe(' . $shoeId . ')">';
                         }
                     }
                 }
@@ -330,6 +330,65 @@ require "header.php";
     </div>
 </div>
 
+<div id="edit-product-popup" style="display: none;">
+    <form id="edit-product-form" method="post" action="update_product.php">
+        <input type="hidden" id="edit-product-id" name="product_id">
+
+        <label for="product-name">Product Name:</label>
+        <input type="text" id="product-name" name="product_name"><br>
+
+        <label for="product-description">Product Description:</label>
+        <input type="text" id="product-description" name="product_description"><br>
+
+        <label for="product-price">Product Price:</label>
+        <input type="text" id="product-price" name="product_price"><br>
+
+        <label for="shoe-sizes">Available Sizes:</label>
+        <div id="shoe-sizes" class="size-checkbox">
+            <input type="checkbox" id="size-33" name="shoe_sizes[]" value="33">
+            <label for="size-33">EU 33</label>
+            
+            <input type="checkbox" id="size-34" name="shoe_sizes[]" value="34">
+            <label for="size-34">EU 34</label>
+            
+            <input type="checkbox" id="size-35" name="shoe_sizes[]" value="35">
+            <label for="size-35">EU 35</label>
+            
+            <input type="checkbox" id="size-36" name="shoe_sizes[]" value="36">
+            <label for="size-36">EU 36</label>
+            
+            <input type="checkbox" id="size-37" name="shoe_sizes[]" value="37">
+            <label for="size-37">EU 37</label>
+            
+            <input type="checkbox" id="size-38" name="shoe_sizes[]" value="38">
+            <label for="size-38">EU 38</label>
+            
+            <input type="checkbox" id="size-39" name="shoe_sizes[]" value="39">
+            <label for="size-39">EU 39</label>
+            
+            <input type="checkbox" id="size-40" name="shoe_sizes[]" value="40">
+            <label for="size-40">EU 40</label>
+            
+            <input type="checkbox" id="size-41" name="shoe_sizes[]" value="41">
+            <label for="size-41">EU 41</label>
+            
+            <input type="checkbox" id="size-42" name="shoe_sizes[]" value="42">
+            <label for="size-42">EU 42</label>
+            
+            <input type="checkbox" id="size-43" name="shoe_sizes[]" value="43">
+            <label for="size-43">EU 43</label>
+            
+            <input type="checkbox" id="size-44" name="shoe_sizes[]" value="44">
+            <label for="size-44">EU 44</label>
+            
+            <input type="checkbox" id="size-45" name="shoe_sizes[]" value="45">
+            <label for="size-45">EU 45</label>
+        </div>
+        <input type="submit" value="Save">
+    </form>
+</div>
+ <div id="popup-background" style="display: none;"></div>
+
 <form id="delete-form" method="post" action="delete_shoe.php" style="display: none;">
     <input type="hidden" name="shoe_id" id="delete-shoe-id">
 </form>
@@ -344,6 +403,37 @@ function deleteShoe(shoeId) {
     document.getElementById('delete-shoe-id').value = shoeId;
     document.getElementById('delete-form').submit();
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const infoIcons = document.querySelectorAll('.info-icon');
+    infoIcons.forEach(icon => {
+        icon.addEventListener('click', function() {
+            const productId = this.getAttribute('data-product-id');
+            const productName = this.getAttribute('data-product-name');
+            const productDescription = this.getAttribute('data-product-description');
+            const productPrice = this.getAttribute('data-product-price');
+            const productSizes = JSON.parse(this.getAttribute('data-product-sizes'));
+
+            document.getElementById('edit-product-id').value = productId;
+            document.getElementById('product-name').value = productName;
+            document.getElementById('product-description').value = productDescription;
+            document.getElementById('product-price').value = productPrice;
+
+            // Reset sizes select options
+            document.querySelectorAll('#shoe-sizes option').forEach(option => {
+                option.selected = productSizes.includes(parseInt(option.value));
+            });
+
+            document.getElementById('edit-product-popup').style.display = 'block';
+            document.getElementById('popup-background').style.display = 'block';
+        });
+    });
+
+    document.getElementById('popup-background').addEventListener('click', function() {
+        document.getElementById('edit-product-popup').style.display = 'none';
+        this.style.display = 'none';
+    });
+});
 </script>
 
 <?php
