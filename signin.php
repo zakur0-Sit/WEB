@@ -38,13 +38,14 @@
                     {
                         setcookie("admin", $email, time() + (86400 * 10), "/");
                         header("Location: admin.php");
+                        exit();
                     }
                     else
                     {
                         setcookie("user", $email, time() + (86400 * 10), "/");
                         header("Location: account.php");
+                        exit();
                     }
-                    exit();
                 }
             ?>
 
@@ -52,14 +53,13 @@
                 <input class="input-line register" type="text" name="email" placeholder="E-mail"><br>
                 <input class="input-line register" type="password" name="password" placeholder="Password"><br>
                 <button class="input-line" type="submit" name="submit">Sign In</button>
-
             </form>
             <br>
             <p>Or Sign In with</p>
             <br>
             <div class="reg-ico">
                 <div class="google"><a href="#"><img src="img/ico/google.png" alt="google"></a></div>
-                <div class="faceboock"><a href="#"><img src="img/ico/facebook.png" alt="faceboock"></a></div>
+                <div class="facebook"><a href="#"><img src="img/ico/facebook.png" alt="faceboock"></a></div>
                 <div class="x"><a href="#"><img src="img/ico/x.png" alt="twitter"></a></div>
             </div>
             <br>
@@ -69,6 +69,6 @@
             </div>
         </div>
     </main>
-    
+
 </body>
 </html>

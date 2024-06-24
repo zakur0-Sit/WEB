@@ -221,6 +221,7 @@ if (isset($_COOKIE['user'])) {
     <div class="popup-background" style="display: none;"></div>
 </div>
 <script src="js/account.js"></script>
+<script src="js/menu.js"></script>
 <?php
 require "footer.php";
 ?>

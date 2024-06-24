@@ -233,12 +233,27 @@ require "header.php";
                 $shoeId = $sizes['id_shoes'];
 
                 echo '<div class="element" style="position: relative;">';
-                echo '<img src="img/ico/info.png" alt="image" class="info-icon">';
-                echo '<img src="' . htmlspecialchars($shoe['image']) . '" alt="image">';
+                echo '<div class="admin-product">';
+                echo '<img src="' . htmlspecialchars($shoe['image']) . '" alt="image" class="product-img">';
+                echo '<div class="admin-ico">';
+                if (isset($_COOKIE['admin'])) {
+                    echo '<img src="img/ico/info.png" alt="image" class="info-icon">';
+                    $userEmail = mysqli_real_escape_string($connection, $_COOKIE['admin']);
+                    $sql = "SELECT role FROM users WHERE email = '$userEmail'";
+                    $result = mysqli_query($connection, $sql);
+                    if ($result && mysqli_num_rows($result) > 0) {
+                        $user = mysqli_fetch_assoc($result);
+                        if ($user['role'] === 'admin') {
+                            echo '<img src="img/ico/trash.png" alt="image" class="garbage-icon" onclick="deleteShoe(' . $shoeId . ')">';
+                        }
+                    }
+                }
+                echo '</div>';
+                echo '</div>';
                 echo '<div class="info">';
                 echo '<div class="info-top">';
                 echo '<div class="detalii">';
-                echo '<p class="info-name"><strong>' . htmlspecialchars($shoe['name_shoes']) . '</strong></p><br>';
+                echo '<p class="info-name"><h3>' . htmlspecialchars($shoe['name_shoes']) . '</h3></p><br>';
                 echo '<p class="info-descript">' . nl2br(htmlspecialchars($shoe['description'])) . '</p><br>';
                 echo '<p class="info-price">' . htmlspecialchars($shoe['price']) . '$</p>';
                 echo '</div>';
@@ -259,18 +274,7 @@ require "header.php";
 
                 echo '<p class="score">' . $averageRating . '/10</p>';
                 echo '<img class="star" src="img/ico/star.png" alt="image">';
-                if (isset($_COOKIE['admin'])) {
-                    $userEmail = mysqli_real_escape_string($connection, $_COOKIE['admin']);
-                    $sql = "SELECT role FROM users WHERE email = '$userEmail'";
-                    $result = mysqli_query($connection, $sql);
-                    if ($result && mysqli_num_rows($result) > 0) {
-                        $user = mysqli_fetch_assoc($result);
-                        if ($user['role'] === 'admin') {
-                            echo '<img src="img/ico/garbage.png" alt="image" class="garbage-icon" onclick="deleteShoe(' . $shoeId . ')">';
-                        }
-                    }
-                } 
-                
+
                 echo '</div>';
                 echo '<button class="rating-button" data-shoe-id="' . $shoeId . '" data-user-id="' . $userId . '">Rate</button>';
                 echo '</div>';
@@ -278,15 +282,6 @@ require "header.php";
 
                 echo '<div class="info-bottom">';
                 echo '<button type="button" onclick="window.location.href=\'' . htmlspecialchars($shoe['link']) . '\'">Buy now</button>';
-                echo '<div class="buttons-size">';
-
-                for ($size = 33; $size <= 45; $size++) {
-                    if ($sizes['size_' . $size] == 1) {
-                        echo '<button class="size-button">EU ' . $size . '</button>';
-                    }
-                }
-
-                echo '</div>';
 
                 if ($userId !== null) {
                     $query = "SELECT love FROM ratings WHERE id_shoes='" . $shoeId . "' AND id_user='" . $userId . "'";
@@ -298,6 +293,15 @@ require "header.php";
                     }
 
                     echo '<img class="like heart" src="img/ico/' . $heartImage . '" alt="image" data-user-id="' . $userId . '" data-shoe-id="' . $shoeId . '">';
+                }
+
+                echo '</div>';
+                echo '<div class="buttons-size">';
+
+                for ($size = 33; $size <= 45; $size++) {
+                    if ($sizes['size_' . $size] == 1) {
+                        echo '<button class="size-button">EU ' . $size . '</button>';
+                    }
                 }
 
                 echo '</div>';
