@@ -65,8 +65,12 @@
             <br>
             <div class="new-acc">
                 <p>Don't have an account? &#160; </p>
-                <a href="signup.php">Sign Up!</a>
+                <a href="signup.php">Sign Up!</a><br>
+            </div><br>
+            <div class="rec-acc">
+                <a href="password_recovery.php">Reset The Password</a>
             </div>
+            
         </div>
     </main>
 

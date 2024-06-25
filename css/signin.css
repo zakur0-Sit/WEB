@@ -110,6 +110,8 @@ input
 {
     width: 300px;
     height: 40px;
+    position: relative;
+    cursor: pointer; 
 }
 
 input[type="checkbox"]
@@ -133,8 +135,17 @@ button
     display: flex;
 }
 
-.new-acc>a
+.rec-acc>a
 {
+    color: #E2BA07;
+}
+
+.rec-acc
+{
+    margin-top: 10px;
+}
+
+.a {
     color: #E2BA07;
 }
 

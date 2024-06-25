@@ -19,7 +19,7 @@
 
         foreach ($data as $row) {
             // Inserare în tabelul 'shoes'
-            $stmt = $connection->prepare("INSERT INTO shoes (name_shoes, category, brand, price, description, image, link, rating) VALUES (?, ?, ?, ?, ?, ?, ?, 0)");
+            $stmt = $connection->prepare("INSERT INTO shoes (name_shoes, category, brand, price, description, image, link) VALUES (?, ?, ?, ?, ?, ?, ?)");
             $stmt->bind_param(
                 "sssssss",
                 $row['name_shoes'],
@@ -98,7 +98,7 @@
             $row_data = array_combine($header, $row);
 
             // Inserare în tabelul 'shoes'
-            $stmt = $connection->prepare("INSERT INTO shoes (name_shoes, category, brand, price, description, image, link, rating) VALUES (?, ?, ?, ?, ?, ?, ?, 0)");
+            $stmt = $connection->prepare("INSERT INTO shoes (name_shoes, category, brand, price, description, image, link) VALUES (?, ?, ?, ?, ?, ?, ?)");
             $stmt->bind_param(
                 "sssssss",
                 $row_data['name_shoes'],
