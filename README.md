@@ -1,97 +1,251 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <link rel="stylesheet" href="css/scholarly.min.css">
-</head>
-<body>
-  <header>
-    <h1>FoSA</h1>
-  </header>
-  
-  <div role="contentinfo">
-    <dl>
-      <dt>Authors</dt>
-      <dd>Cazacu Ion and Țigănescu Ioan Iustin</dd>
-      <dt>Purpose</dt>
-      <dd>Project done for the Web Development Course, FII UAIC, Year 2</dd>
-    </dl>
-  </div>
-  
-  <section typeof="sa:Abstract" id="abstract" role="doc-abstract">
-    <h2>Project Description</h2>
-    <p>
-      Some people may encounter difficulties in choosing the right footwear for certain occasions: job interviews, shows, sumo championships, etc. Therefore, a web application is necessary that allows the selection of footwear, offering various recommendations based on the season, color palette, preferred brand, fashion trends, special features, and/or the individual's adopted style of dress – for example, sporty attire, office wear, and others.
-    </p>
-    <p>
-      Information will be provided regarding the acquisition of products of interest (e.g., suggestions such as "spring is approaching, painted boots would be useful for nighttime strolls" or "for dance ceremonies, shoes with steel heels are recommended; pair them with a silver toga"). Each suggestion given to the user will be sent via email, additionally shareable on a social network and open to voting (i.e., rated with 1, 2, ..., 5 "stars" or grades), allowing it to be proposed to others with similar preferences. The generated statistics will adopt HTML, CSV, and XML formats. Data will be sourced from specialized websites.
-    </p>
-  </section>
-  
-  <section id="introduction" role="doc-introduction">
-    <h2>Purpose and Product Scope</h2>
-    <ul>
-      <li>Home: If you're unsure about what you'd like to purchase, you can explore our offerings based on the desired season.</li>
-      <li>Footwear: You can also conduct searches within the application's inventory based on slipper categories, popular brands, desired sizes, and maximum price you're willing to pay. You can like a pair of slippers, which will then appear in your account history. You also have the option to purchase the desired pair with a simple click of a button; you will be redirected to the page where you can make the purchase.</li>
-      <li>About: Learn more about us and what we offer.</li>
-      <li>Help: Don't worry if online shopping is new to you; we provide tutorials on how to use the application and answers to frequently asked questions to make your experience stress-free.</li>
-    </ul>
-  </section>
-  
-  <section id="structure">
-    <h2>Document Conventions</h2>
-    <h3>Colors</h3>
-    <p>Throughout the project, we used two main colors: #E2BA07 (golden yellow) and white (#fff).</p>
-    <h3>Fonts</h3>
-    <p>For fonts, we utilized bold styles and fonts like Poppins and Inter. In our design, we played with font sizes (1.1em, 2vw, 24px) and weights (600, 500, 14vw) to create visually engaging elements.</p>
-  </section>
-  
-  <section id="audience">
-    <h2>Intended Audience and Buyer Suggestions</h2>
-    <p>Our application targets three types of users: readers who follow the latest fashion news, followers who receive personalized suggestions based on their preferences, and buyers looking to purchase footwear.</p>
-  </section>
-  
-  <section id="environment">
-    <h2>Operating Environment</h2>
-    <p>Our goal is to create a responsive web application that works seamlessly on any device, regardless of platform or operating system.</p>
-  </section>
-  
-  <section id="documentation">
-    <h2>User Documentation</h2>
-    <p>Users can learn about our activities and offerings to meet their needs. We provide a dynamic system that answers common questions and resolves uncertainties on the "About" and "Help" pages.</p>
-  </section>
-  
-  <section id="features">
-    <h2>System Features</h2>
-    <ul>
-      <li>Reviews and Ratings: Users can leave feedback and ratings for purchased products.</li>
-      <li>Notifications and Alerts: Users can opt-in to receive notifications about discounts, promotions, and new arrivals.</li>
-      <li>Social Integration: Ability to share products on social networks and recommend them to others.</li>
-      <li>User History and Account Management: Users can view purchase history, manage account details, and save favorite items.</li>
-      <li>Support and Assistance: Technical support and real-time chat for user queries.</li>
-    </ul>
-  </section>
-  
-  <section id="backend">
-    <h2>Backend Development</h2>
-    <p>The backend is developed using HTML, SCSS, JavaScript, and PHP to implement advanced application functionalities.</p>
-    <ul>
-      <li>Enhance application interface.</li>
-      <li>Create and integrate a database.</li>
-      <li>Implement specific functionalities for each page.</li>
-      <li>Enable downloading of personal account information and product listings.</li>
-    </ul>
-  </section>
-  
-  <section id="other">
-    <h2>Other Desires</h2>
-    <ul>
-      <li>Performance: Ensure smooth operation and efficiency under pressure.</li>
-      <li>Security: Protect user data and prevent security incidents.</li>
-    </ul>
-  </section>
-  
-</body>
-</html>
+## Software Requirements Specification
+
+## For FoSA (Footwear Selection Application)
+
+Version 1.0 approved Prepared by Cazacu Ion and Țigănescu Ioan Iustin Web Development Course, FII UAIC, Year 2 Date created: [25/06/2024]
+
+---
+
+### Table of Contents
+
+- [Introduction](#1-introduction)
+    - 1.1 [Purpose](#11-purpose)
+    - 1.2 [Document Conventions](#12-document-conventions)
+    - 1.3 [Intended Audience and Reading Suggestions](#13-intended-audience-and-reading-suggestions)
+    - 1.4 [Product Scope](#14-product-scope)
+    - 1.5 [References](#15-references)
+- [Overall Description](#overall-description)
+    - 2.1 [Product Perspective](#21-product-perspective)
+    - 2.2 [Product Functions](#22-product-functions)
+    - 2.3 [User Classes and Characteristics](#23-user-classes-and-characteristics)
+    - 2.4 [Operating Environment](#24-operating-environment)
+    - 2.5 [Design and Implementation Constraints](#25-design-and-implementation-constraints)
+    - 2.6 [User Documentation](#26-user-documentation)
+    - 2.7 [Assumptions and Dependencies](#27-assumptions-and-dependencies)
+- [External Interface Requirements](#external-interface-requirements)
+    - 3.1 [User Interfaces](#31-user-interfaces)
+    - 3.2 [Hardware Interfaces](#32-hardware-interfaces)
+    - 3.3 [Software Interfaces](#33-software-interfaces)
+    - 3.4 [Communications Interfaces](#34-communications-interfaces)
+- [System Features](#system-features)
+    - 4.1 [Notifications and Alerts](#41-notifications-and-alerts)
+    - 4.2 [User History and Account Management](#42-user-history-and-account-management)
+    - 4.3 [Support and Assistance](#43-support-and-assistance)
+- [Other Nonfunctional Requirements](#other-nonfunctional-requirements)
+    - 5.1 [Performance Requirements](#51-performance-requirements)
+    - 5.2 [Safety Requirements](#52-safety-requirements)
+    - 5.3 [Security Requirements](#53-security-requirements)
+    - 5.4 [Software Quality Attributes](#54-software-quality-attributes)
+    - 5.5 [Business Rules](#55-business-rules)
+- [Other Requirements](#other-requirements)
+- [Appendix A: Glossary](#appendix-a-glossary)
+- [Appendix B: Analysis Models](#appendix-b-analysis-models)
+
+---
+
+## 1. Introduction
+
+### 1.1 Purpose
+
+This document specifies the software requirements for the Footwear Selection Application (FoSA), developed for the Web Development Course at FII UAIC, Year 2. The application aims to help users choose appropriate footwear for various occasions by offering recommendations.
+
+### 1.2 Document Conventions
+
+This document follows the IEEE requirements specification format. Key points are highlighted using bold text, and sections are organized using headings and subheadings. Functional requirements are identified with unique tags for easy reference.
+
+### 1.3 Intended Audience and Reading Suggestions
+
+This document is intended for developers, users, testers, and documentation writers. It contains an overview of the project, detailed functional and non-functional requirements, and appendices with additional information. Readers are advised to start with the introduction and product scope, then proceed to sections relevant to their roles.
+
+### 1.4 Product Scope
+
+FoSA is a web application designed to assist users in selecting footwear for various occasions. It provides recommendations based on factors such as, color palette, brand, fashion trends, and personal style. The application allows users to save by liking and rate suggestions, receive purchase information.
+
+### 1.5 References
+
+1. Web Development Course, FII UAIC
+2. HTML, CSS, JavaScript, and PHP documentation
+3. Online fashion and footwear trend resources
+
+---
+
+## Overall Description
+
+### 2.1 Product Perspective
+
+FoSA is a standalone web application that does not depend on any existing systems. It is designed to provide a user-friendly interface for selecting and purchasing footwear. The application will share recommendations using email services.
+
+### 2.2 Product Functions
+
+- **Home Page**: Explore footwear based on the desired season.
+- **Search Functionality**: Search for footwear by category, brand, size, color and price.
+- **Product Recommendations**: Receive personalized suggestions by e-mail based on preferences.
+- **Purchase Options**: Redirect users to purchase pages.
+- **User Interaction**: Rate and like product suggestions.
+
+### 2.3 User Classes and Characteristics
+
+- **Readers**: Follow the latest fashion news.
+- **Followers**: Receive personalized footwear suggestions.
+- **Buyers**: Interested in purchasing footwear.
+
+### 2.4 Operating Environment
+
+FoSA is a responsive web application that works on any device, regardless of platform or operating system. The frontend and backend are developed using HTML, CSS, JavaScript, and PHP.
+
+### 2.5 Design and Implementation Constraints
+
+- **Regulatory Policies**: Compliance with data protection and privacy laws.
+- **Hardware Limitations**: Ensure compatibility with various devices.
+- **Security Considerations**: Implement robust security measures to protect user data.
+
+### 2.6 User Documentation
+
+- **About Page**: Information about the application and its offerings.
+- **Help Page**: Tutorials and FAQs to assist users in navigating the application.
+
+### 2.7 Assumptions and Dependencies
+
+- Users have access to the internet.
+- Data from external fashion websites is accessible and reliable.
+
+---
+
+## External Interface Requirements
+
+### 3.1 User Interfaces
+
+- **Homepage**: Seasonal footwear recommendations.
+- **Product Page**: Filters for category, brand, size, color and price. Detailed product descriptions, ratings, and purchase options.
+- **User Account Page**: Liked products history and account management.
+
+### 3.2 Hardware Interfaces
+
+- **Server**: Host the web application and database.
+- **User Devices**: Access the application via web browsers on desktops, tablets, and smartphones.
+
+### 3.3 Software Interfaces
+
+- **Database**: Store user data, product information, and transaction history.
+- **API**: Integrate with email services.
+
+### 3.4 Communications Interfaces
+
+- **HTTP/HTTPS**: Ensure secure data transmission between the client and server.
+- **Email Notifications**: Send personalized footwear recommendations and alerts.
+
+---
+
+## System Features
+
+### 4.1 Notifications and Alerts
+
+#### 4.1.1 Description and Priority
+
+Users can receive notifications about discounts, promotions, and new arrivals. This feature is of medium priority.
+
+#### 4.1.2 Stimulus/Response Sequences
+
+- **User Action**: Set an e-mail for notifications.
+- **System Response**: Send notifications via email.
+
+#### 4.1.3 Functional Requirements
+
+- Provide an option for notifications.
+- Send email notifications based on user preferences.
+
+### 4.2 User History and Account Management
+
+#### 4.2.1 Description and Priority
+
+Users can manage account details, and save favorite items. This feature is of high priority for enhancing user experience.
+
+#### 4.2.2 Stimulus/Response Sequences
+
+- **User Action**: View account history.
+- **System Response**: Display the user's saved items.
+
+#### 4.2.3 Functional Requirements
+
+- Allow users to update account details.
+- Provide an option to save favorite items.
+
+### 4.3 Support and Assistance
+
+#### 4.3.1 Description and Priority
+
+Provide users with support and assistance through a dedicated help page. This feature is of medium priority.
+
+#### 4.3.2 Stimulus/Response Sequences
+
+- **User Action**: Access the help page.
+- **System Response**: Display FAQs and contact information.
+
+#### 4.3.3 Functional Requirements
+
+- Develop a comprehensive help page.
+- Include FAQs and contact information for user support.
+
+---
+
+## Other Nonfunctional Requirements
+
+### 5.1 Performance Requirements
+
+The application should load within 3 seconds on standard internet connections and be able to handle up to 1000 concurrent users without performance degradation.
+
+### 5.2 Safety Requirements
+
+Implement data validation to prevent SQL injection, cross-site scripting (XSS), and other common security threats.
+
+### 5.3 Security Requirements
+
+Use HTTPS for secure data transmission and encrypt sensitive user data. Implement authentication and authorization mechanisms to protect user accounts.
+
+### 5.4 Software Quality Attributes
+
+- **Usability**: Ensure the application is easy to navigate and user-friendly.
+- **Reliability**: Minimize downtime and ensure the application is available 99.9% of the time.
+- **Scalability**: Design the system to scale efficiently as user demand grows.
+
+### 5.5 Business Rules
+
+Follow industry best practices for web development and adhere to relevant regulatory requirements.
+
+---
+
+## Other Requirements
+
+None specified at this time.
+
+---
+
+## Appendix A: Glossary
+
+- **FoSA**: Footwear Selection Application
+- **UI**: User Interface
+- **API**: Application Programming Interface
+- **HTTPS**: Hypertext Transfer Protocol Secure
+- **SQL**: Structured Query Language
+
+---
+
+## Appendix B: Analysis Models
+
+Include diagrams and models such as C4 diagram.
+
+C4 (Level 1)
+
+![level1](https://github.com/zakur0-Sit/WEB/assets/126080046/1a7f8765-918f-4933-ab20-ac9a13b1fb0d)
+
+C4 (Level 2)
+
+![level2](https://github.com/zakur0-Sit/WEB/assets/126080046/a85073d0-b5c2-43d3-ac60-ccbf09f051cb)
+
+C4 (Level 3)
+
+![level3](https://github.com/zakur0-Sit/WEB/assets/126080046/056035a6-69d1-468b-9fb0-302f0914bc58)
+
+C4 (Level 4)
+
+![level4](https://github.com/zakur0-Sit/WEB/assets/126080046/42a824d8-d966-4fe4-a9da-9c6794196812)
