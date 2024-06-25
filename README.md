@@ -3,6 +3,7 @@
 ## For FoSA (Footwear Selection Application)
 
 Version 1.0 approved Prepared by Cazacu Ion and Țigănescu Ioan Iustin Web Development Course, FII UAIC, Year 2 Date created: [25/06/2024]
+[Presentation] https://youtu.be/Ea1aoOZZ55U
 
 ---
 
